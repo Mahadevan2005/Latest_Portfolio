@@ -5,7 +5,7 @@ import bgImage from "../../public/hero-bg.jpg";
 const Hero = () => {
   return (
     <section
-      className="relative min-h-[calc(80vh-5rem)] flex items-center justify-center overflow-hidden text-white px-4"
+      className="relative max-md:h-screen min-h-[calc(80vh-5rem)] flex items-center justify-center overflow-hidden text-white px-4"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
