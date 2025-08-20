@@ -58,7 +58,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <NavLink to="/" className="font-bold text-xl relative z-50">
-            <span className="text-primary">Dev</span>Portfolio
+            <span className="text-primary">Maha</span>devan
           </NavLink>
 
           {/* Desktop Nav */}
