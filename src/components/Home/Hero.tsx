@@ -5,7 +5,7 @@ import bgImage from "../../public/hero-bg.jpg";
 const Hero = () => {
   return (
     <section
-      className="relative min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden text-white px-4"
+      className="relative min-h-[calc(60vh-5rem)] flex items-center justify-center overflow-hidden text-white px-4"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -34,7 +34,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative z-10 mt-48 md:mt-80"
+          className="relative z-10 mt-48 md:mt-60"
         >
           <img
             src={profilePic}

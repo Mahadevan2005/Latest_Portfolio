@@ -8,6 +8,7 @@ import Accolades from './pages/Accolades';
 import Experience from './pages/Experience';
 import Codolio from './pages/Codolio';
 import HelloAnimation from './components/HelloAnimation';
+import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
   const [mounted, setMounted] = useState<boolean>(false);
@@ -18,28 +19,32 @@ const App: React.FC = () => {
     setMounted(true);
   }, []);
 
-  const handleAnimationFinish = () => {
-    setShowAnimation(false);
-  };
-
   if (!mounted) return null;
 
-  if (showAnimation) {
-    return <HelloAnimation onFinish={handleAnimationFinish} />;
-  }
-
   return (
-    <ThemeProvider>
-      <Layout>
-        <Routes location={location} key={location.pathname}> 
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/accolades" element={<Accolades />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/codolio" element={<Codolio />} />
-        </Routes>
-      </Layout>
-    </ThemeProvider>
+    <>
+      {showAnimation && <HelloAnimation onFinish={() => setShowAnimation(false)} />}
+
+      {!showAnimation && (
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <ThemeProvider>
+            <Layout>
+              <Routes location={location} key={location.pathname}> 
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/accolades" element={<Accolades />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/codolio" element={<Codolio />} />
+              </Routes>
+            </Layout>
+          </ThemeProvider>
+        </motion.div>
+      )}
+    </>
   );
 }
 
