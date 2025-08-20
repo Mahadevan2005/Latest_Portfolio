@@ -56,10 +56,12 @@ const HelloAnimation: React.FC<HelloAnimationProps> = ({ onFinish }) => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
                 style={{
-                  fontSize: "3.8rem",
                   fontWeight: 600,
                   color: "#8cf503ff",
                   textAlign: "center",
+                  whiteSpace: "nowrap",
+                  padding: "0 1rem", // add horizontal padding
+                  fontSize: "clamp(2.5rem, 8vw, 3.8rem)", // responsive font size
                 }}
               >
                 {greetings[index]}
