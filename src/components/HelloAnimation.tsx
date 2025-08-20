@@ -24,7 +24,7 @@ const HelloAnimation: React.FC<HelloAnimationProps> = ({ onFinish }) => {
       } else {
         setIndex(index + 1);
       }
-    }, 700);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, [index, onFinish]);
@@ -43,6 +43,7 @@ const HelloAnimation: React.FC<HelloAnimationProps> = ({ onFinish }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            whiteSpace: "nowrap",
             backgroundColor: "#0f0f0f",
           }}
         >
@@ -57,7 +58,7 @@ const HelloAnimation: React.FC<HelloAnimationProps> = ({ onFinish }) => {
                 style={{
                   fontSize: "4rem",
                   fontWeight: 600,
-                  color: "#ff69b4",
+                  color: "#8cf503ff",
                   textAlign: "center",
                 }}
               >
