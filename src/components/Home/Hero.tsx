@@ -34,7 +34,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative z-10 mt-48 md:mt-60"
+          className="relative z-10 mt-48 md:mt-80"
         >
           <img
             src={profilePic}
