@@ -5,7 +5,7 @@ import bgImage from "../../public/hero-bg.jpg";
 const Hero = () => {
   return (
     <section
-      className="relative max-md:h-screen min-h-[calc(80vh-5rem)] flex items-center justify-center overflow-hidden text-white px-4"
+      className="relative min-h-[calc(80vh-5rem)] flex items-center justify-center overflow-hidden text-white px-4"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -19,14 +19,14 @@ const Hero = () => {
       <div className="max-w-5xl w-full flex flex-col items-center justify-center relative z-10">
         {/* Big Background Text */}
         <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute top-16 sm:top-24 md:top-1/4 font-extrabold leading-tight tracking-tight text-gray-200 uppercase z-0 text-center w-full"
-            style={{ lineHeight: "0.85" }}
-          >
-            <span className="block text-[14vw] md:text-[9vw]">MAHADEVAN</span>
-            <span className="block text-[12vw] md:text-[8vw]">MANIKANDAN</span>
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute top-16 sm:top-24 md:top-1/4 font-extrabold leading-tight tracking-tight text-gray-200 uppercase z-0 text-center w-full"
+          style={{ lineHeight: "0.85" }}
+        >
+          <span className="block text-[14vw] md:text-[9vw]">MAHADEVAN</span>
+          <span className="block text-[12vw] md:text-[8vw]">MANIKANDAN</span>
         </motion.h1>
 
         {/* Profile Image */}
