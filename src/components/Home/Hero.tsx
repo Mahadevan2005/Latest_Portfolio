@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import profilePic from "../../assets/profile.jpg";
-import bgImage from "../../assets/hero-bg.jpg";
+import profilePic from "../../public/profile.jpg";
+import bgImage from "../../public/hero-bg.jpg";
 
 const Hero = () => {
   return (

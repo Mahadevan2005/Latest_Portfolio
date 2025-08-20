@@ -2,6 +2,7 @@ import SectionHeading from "../SectionHeading";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaLaptopCode, FaLightbulb, FaUsers } from "react-icons/fa";
+import ghibliPic from "../../public/Mahadevan_Ghibli.png";
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -72,7 +73,7 @@ const About = () => {
             className="flex justify-center lg:justify-end"
           >
             <img
-              src="src\assets\Mahadevan_Ghibli.png" // place image in /public folder
+              src={ghibliPic}
               alt="Mahadevan illustration"
               className="w-80 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain rounded-2xl shadow-xl"
             />
