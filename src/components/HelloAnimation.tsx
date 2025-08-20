@@ -56,7 +56,7 @@ const HelloAnimation: React.FC<HelloAnimationProps> = ({ onFinish }) => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
                 style={{
-                  fontSize: "4rem",
+                  fontSize: "3.8rem",
                   fontWeight: 600,
                   color: "#8cf503ff",
                   textAlign: "center",
