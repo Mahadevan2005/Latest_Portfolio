@@ -6,24 +6,23 @@ import ghibliPic from "../../public/Mahadevan_Ghibli.png";
 
 const About = () => {
   const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  triggerOnce: true,
+  threshold: 0.2, // triggers earlier
+  rootMargin: "0px 0px -10% 0px", // helps mobile trigger faster
+});
 
   return (
     <section id="about" className="section bg-muted/30">
       <div className="container-custom">
         <SectionHeading
-          title="About Me"
-          subtitle="A brief introduction to who I am and what I do"
+          title="WHAT I DO"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
-            ref={ref}
             initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
