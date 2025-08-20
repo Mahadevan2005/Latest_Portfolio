@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import profilePic from "../../public/profile.jpg";
 import bgImage from "../../public/hero-bg.jpg";
+import { HiExternalLink } from "react-icons/hi"
 
 const Hero = () => {
   return (
@@ -21,25 +22,25 @@ const Hero = () => {
           href="https://www.linkedin.com/in/mahadevan-m-8966b124a/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white font-semibold hover:text-pink-500 transition"
+          className="flex items-center gap-0 text-white font-semibold hover:text-pink-500 transition flex-nowrap"
         >
-          LinkedIn
+          LinkedIn <HiExternalLink size={18} />
         </a>
         <a
           href="https://github.com/mahadevan2005"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white font-semibold hover:text-pink-500 transition"
+          className="flex items-center gap-0.5 text-white font-semibold hover:text-pink-500 transition flex-nowrap"
         >
-          GitHub
+          GitHub <HiExternalLink size={18} />
         </a>
         <a
           href="https://drive.google.com/file/d/1597qJ2TeOCFWdNNpYAmqFnZvw65zUVLH/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white font-semibold hover:text-pink-500 transition"
+          className="flex items-center gap-0 text-white font-semibold hover:text-pink-500 transition flex-nowrap"
         >
-          Resume
+          Resume <HiExternalLink size={18} />
         </a>
       </div>
 
