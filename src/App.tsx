@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home';
@@ -8,17 +7,26 @@ import Projects from './pages/Projects';
 import Accolades from './pages/Accolades';
 import Experience from './pages/Experience';
 import Codolio from './pages/Codolio';
+import HelloAnimation from './components/HelloAnimation';
 
-function App() {
-  const [mounted, setMounted] = useState(false);
+const App: React.FC = () => {
+  const [mounted, setMounted] = useState<boolean>(false);
+  const [showAnimation, setShowAnimation] = useState<boolean>(true);
   const location = useLocation();
 
-  // Used for preventing hydration mismatch
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const handleAnimationFinish = () => {
+    setShowAnimation(false);
+  };
+
   if (!mounted) return null;
+
+  if (showAnimation) {
+    return <HelloAnimation onFinish={handleAnimationFinish} />;
+  }
 
   return (
     <ThemeProvider>
