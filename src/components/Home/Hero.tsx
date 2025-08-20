@@ -5,19 +5,47 @@ import bgImage from "../../public/hero-bg.jpg";
 const Hero = () => {
   return (
     <section
-      className="relative min-h-[calc(80vh-5rem)] flex items-center justify-center overflow-hidden text-white px-4"
+      className="relative min-h-[calc(80vh-5rem)] flex flex-col items-center justify-center overflow-hidden text-white px-4"
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* Dark overlay for better contrast */}
+      {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/50 z-0"></div>
 
-      {/* Centered container with reduced width */}
+      {/* Centered CTA */}
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex gap-8">
+        <a
+          href="https://www.linkedin.com/in/mahadevan-m-8966b124a/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white font-semibold hover:text-pink-500 transition"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="https://github.com/mahadevan2005"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white font-semibold hover:text-pink-500 transition"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://drive.google.com/file/d/1597qJ2TeOCFWdNNpYAmqFnZvw65zUVLH/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white font-semibold hover:text-pink-500 transition"
+        >
+          Resume
+        </a>
+      </div>
+
+      {/* Main Hero Content */}
       <div className="max-w-5xl w-full flex flex-col items-center justify-center relative z-10">
-        {/* Big Background Text */}
+        {/* Background Text */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
