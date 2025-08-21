@@ -59,10 +59,16 @@ interface EducationItemProps {
 const EducationItem = ({ education, index }: EducationItemProps) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
+  // Detect screen width (optional: can also use Tailwind breakpoints)
+  const isLargeScreen = typeof window !== "undefined" ? window.innerWidth >= 768 : true;
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+      initial={{
+        opacity: 0,
+        x: isLargeScreen ? (index % 2 === 0 ? -50 : 50) : 0, // horizontal slide only for large screens
+      }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className="rounded-2xl bg-card/80 backdrop-blur-md border border-border shadow-lg p-6 flex flex-col gap-4 hover:shadow-xl transition-all"
