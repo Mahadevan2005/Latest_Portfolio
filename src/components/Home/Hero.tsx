@@ -14,7 +14,7 @@ const Hero = () => {
       }}
     >
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50 z-0"></div>
+      {/* <div className="absolute inset-0 bg-black/50 z-0"></div> */}
 
       {/* Centered CTA */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex gap-8">

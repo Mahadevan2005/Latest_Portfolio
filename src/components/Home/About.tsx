@@ -1,83 +1,93 @@
 import SectionHeading from "../SectionHeading";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { FaLaptopCode, FaLightbulb, FaUsers } from "react-icons/fa";
-import ghibliPic from "../../public/Mahadevan_Ghibli.png";
+import { FaLaptopCode, FaLightbulb, FaUsers, FaCodeBranch } from "react-icons/fa";
 
 const About = () => {
-  const [ref, inView] = useInView({
-  triggerOnce: true,
-  threshold: 0.2, // triggers earlier
-  rootMargin: "0px 0px -10% 0px", // helps mobile trigger faster
-});
+  const highlights = [
+    { icon: <FaLaptopCode />, title: "Full-Stack Dev", subtitle: "Web & App" },
+    { icon: <FaLightbulb />, title: "Creative Thinker", subtitle: "Problem Solver" },
+    { icon: <FaUsers />, title: "Team Player", subtitle: "Collaboration" },
+    { icon: <FaCodeBranch />, title: "Open Source", subtitle: "Contributor" },
+  ];
 
   return (
-    <section id="about" className="section bg-muted/30">
-      <div className="container-custom">
-        <SectionHeading
-          title="WHAT I DO"
-        />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+    <section
+      id="about"
+      className="section bg-gradient-to-b from-amber-50 via-white to-amber-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
+    >
+      <div className="container-custom lg:text-left">
+        <SectionHeading title="About Me" />
+
+        {/* Intro Text */}
+        <div className="max-w-4xl mx-auto space-y-6">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Hello! I’m a <span className="font-semibold text-primary">Computer Science and Data Science student</span> with a deep passion for{" "}
-              <span className="font-medium">software engineering</span>. Ever since I wrote my first line of code, I’ve been driven by the excitement of solving problems and creating impactful solutions through technology.
-            </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              I love turning <span className="font-semibold">ideas into real applications</span>—blending logic, creativity, and clean code. With experience across both front-end and back-end development, I’m constantly{" "}
-              <span className="font-medium">exploring, building, and learning</span>.
-            </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Whether it’s refining my skills through coding challenges, diving into new tech, or experimenting with ideas, I’m always looking for ways to{" "}
-              <span className="font-medium">grow and contribute</span>.
-            </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              I’m excited about where this journey will take me—and I’m always open to connecting with{" "}
-              <span className="font-medium">like-minded innovators</span> along the way!
-            </p>
+            I am a{" "}
+            <span className="font-bold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text">
+              Computer Science & Data Science student
+            </span>{" "}
+            passionate about software development, coding, and problem-solving. I enjoy designing elegant solutions, writing clean and efficient code, and exploring how technology can be harnessed to solve real-world challenges. My journey is aimed at becoming a{" "}
+            <span className="font-semibold text-amber-600 dark:text-amber-400">
+              Software Development Engineer
+            </span>
+            , and I have hands-on experience with both front-end and back-end technologies, allowing me to build complete software products that make an impact.
+          </motion.p>
 
-            {/* Highlights / Quick Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
-              <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/70 dark:bg-gray-800/60 shadow-sm backdrop-blur-md">
-                <FaLaptopCode className="text-primary text-2xl mb-2" />
-                <p className="font-semibold">Full-Stack</p>
-                <p className="text-sm text-muted-foreground">Dev Experience</p>
-              </div>
-              <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/70 dark:bg-gray-800/60 shadow-sm backdrop-blur-md">
-                <FaLightbulb className="text-yellow-500 text-2xl mb-2" />
-                <p className="font-semibold">Problem Solver</p>
-                <p className="text-sm text-muted-foreground">Creative Thinker</p>
-              </div>
-              <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/70 dark:bg-gray-800/60 shadow-sm backdrop-blur-md">
-                <FaUsers className="text-green-500 text-2xl mb-2" />
-                <p className="font-semibold">Team Player</p>
-                <p className="text-sm text-muted-foreground">Collaborative Spirit</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Image / Visual */}
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            <img
-              src={ghibliPic}
-              alt="Mahadevan illustration"
-              className="w-80 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain rounded-2xl shadow-xl"
-            />
-          </motion.div>
+            I strongly believe in{" "}
+            <span className="font-bold bg-gradient-to-r from-teal-500 to-blue-500 text-transparent bg-clip-text">
+              continuous learning
+            </span>{" "}
+            and honing my{" "}
+            <span className="font-semibold text-amber-600 dark:text-amber-400">
+              problem-solving skills
+            </span>
+            , whether through competitive coding, personal projects, or keeping up with the latest industry trends. I am driven to collaborate on innovative projects that challenge me and contribute meaningful solutions to the tech world.
+          </motion.p>
         </div>
+
+        {/* Highlights */}
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 pt-10">
+          {highlights.map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.08 }}
+              className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/80 dark:bg-gray-800/70 shadow-md backdrop-blur-md hover:shadow-2xl hover:bg-gradient-to-r hover:from-amber-200 hover:to-pink-200 dark:hover:from-gray-700 dark:hover:to-gray-600 transition-all duration-300"
+            >
+              <div className="text-4xl text-amber-500 dark:text-amber-400 mb-4 drop-shadow-lg">
+                {item.icon}
+              </div>
+              <p className="font-semibold text-lg">{item.title}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{item.subtitle}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Call-to-Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <a
+            href="https://github.com/mahadevan2005"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-4 text-lg font-bold bg-gradient-to-r from-amber-500 to-pink-500 text-white rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-transform"
+          >
+            Explore My Work
+          </a>
+        </motion.div>
       </div>
     </section>
   );

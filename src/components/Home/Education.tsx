@@ -1,9 +1,8 @@
-import SectionHeading from '../SectionHeading';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { GraduationCap, Calendar } from 'lucide-react';
+import SectionHeading from "../SectionHeading";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { GraduationCap, Calendar } from "lucide-react";
 
-// Replace with your actual education data
 const educationData = [
   {
     id: 1,
@@ -11,36 +10,38 @@ const educationData = [
     institution: "Prince Shri Venkateshwara Padmavathy Engineering College",
     location: "Chennai, TamilNadu, India",
     duration: "2022 - 2026",
-    description: "Pursuing Bachelor's in Computer Science and Engineering with a passion to become a Software developer.",
+    description:
+      "Pursuing a Bachelor's in Computer Science and Engineering, with a strong focus on becoming a thoughtful and skilled software developer.",
     achievements: [
       "CGPA - 9.48/10",
-      "Relevant Courses: Data Structures, Algorithms, Artificial Intelligence & Machine Learning, UI/UX Design, Computer Vision",
-    ]
+      "Relevant Courses: Data Structures, Algorithms, AI & ML, UI/UX Design, Computer Vision",
+    ],
   },
   {
     id: 2,
-    degree: "Bachelor of Science in Data Science and Applications",
+    degree: "B.S in Data Science and Applications",
     institution: "Indian Institute of Technology Madras",
     location: "Chennai, TamilNadu, India",
     duration: "2023 - 2026",
-    description: "Pursuing Bachelor's in Data Science and applications with a keen interest to explore Data science and hone my programming skills.",
+    description:
+      "Studying Data Science, curious about programming, how data reveals patterns, and how it can be used to solve problems in many areas.",
     achievements: [
       "CGPA - 8.29/10",
-      "Relevant Courses: Statistics, Mathematics, Modern Application Development, System Commands, Programming in Java, Database Management Systems.",
-    ]
-  }
+      "Relevant Courses: Statistics, Mathematics, Modern App Development, DBMS",
+    ],
+  },
 ];
 
 const Education = () => {
   return (
-    <section id="education" className="section bg-muted/30">
-      <div className="container-custom">
-        <SectionHeading 
-          title="Education" 
+    <section id="education" className="py-16 bg-gradient-to-br from-background via-secondary/10 to-background">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeading
+          title="Education"
           subtitle="My academic background and qualifications"
         />
-        
-        <div className="space-y-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           {educationData.map((edu, index) => (
             <EducationItem key={edu.id} education={edu} index={index} />
           ))}
@@ -56,53 +57,57 @@ interface EducationItemProps {
 }
 
 const EducationItem = ({ education, index }: EducationItemProps) => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-  
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="card p-6 hover:shadow-md transition-all duration-300"
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.2 }}
+      className="rounded-2xl bg-card/80 backdrop-blur-md border border-border shadow-lg p-6 flex flex-col gap-4 hover:shadow-xl transition-all"
     >
+      {/* Top Row */}
       <div className="flex items-start gap-4">
-        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-          <GraduationCap className="h-6 w-6 text-primary" />
+        <div className="w-14 h-14 bg-gradient-to-tr from-primary/80 to-primary rounded-xl flex items-center justify-center flex-shrink-0">
+          <GraduationCap className="h-7 w-7 text-white" />
         </div>
-        
-        <div className="flex-grow">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-            <h3 className="text-xl font-medium">{education.degree}</h3>
-            <div className="flex items-center text-muted-foreground text-sm">
-              <Calendar className="h-4 w-4 mr-1" />
-              {education.duration}
-            </div>
+        <div className="flex flex-col gap-2">
+          <h3 className="text-lg sm:text-xl font-semibold text-foreground leading-snug">
+            {education.degree}
+          </h3>
+          <div className="flex items-center gap-2 text-muted-foreground text-sm">
+            <Calendar className="h-4 w-4" />
+            <span>{education.duration}</span>
           </div>
-          
-          <p className="text-lg font-medium">{education.institution}</p>
-          <p className="text-muted-foreground mb-4">{education.location}</p>
-          
-          <p className="mb-4">{education.description}</p>
-          
-          {education.achievements.length > 0 && (
-            <>
-              <h4 className="font-medium mb-2">Academic Overview</h4>
-              <ul className="space-y-1">
-                {education.achievements.map((achievement, i) => (
-                  <li key={i} className="flex">
-                    <span className="mr-2 text-primary font-medium">•</span>
-                    <span className="text-muted-foreground">{achievement}</span>
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
         </div>
       </div>
+
+      {/* Institution & Location */}
+      <div>
+        <p className="text-base sm:text-lg font-semibold text-primary">
+          {education.institution}
+        </p>
+        <p className="text-sm text-muted-foreground">{education.location}</p>
+      </div>
+
+      {/* Description */}
+      <p className="text-foreground text-sm sm:text-base">{education.description}</p>
+
+      {/* Achievements */}
+      {education.achievements.length > 0 && (
+        <div>
+          <h4 className="font-medium mb-2 text-foreground">Academic Overview</h4>
+          <ul className="space-y-1 text-sm">
+            {education.achievements.map((achievement, i) => (
+              <li key={i} className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span className="text-muted-foreground">{achievement}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </motion.div>
   );
 };

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
+import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,14 +30,18 @@ const Navbar = () => {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Projects", path: "/projects" },
-    { name: "Accolades", path: "/accolades" },
-    { name: "Experience", path: "/experience" },
-    { name: "Codolio", path: "/codolio" },
-    { name: "Contact", path: "/contact" },
+  type NavLinkItem =
+    | { name: string; type: "scroll"; id: string }
+    | { name: string; type: "route"; path: string };
+
+  const navLinks: NavLinkItem[] = [
+    { name: "Home", type: "route", path: "/" },
+    { name: "About", type: "scroll", id: "about" },
+    { name: "Projects", type: "route", path: "/projects" },
+    { name: "Accolades", type: "route", path: "/accolades" },
+    { name: "Experience", type: "route", path: "/experience" },
+    { name: "Codolio", type: "route", path: "/codolio" },
+    { name: "Contact", type: "scroll", id: "contact" },
   ];
 
   return (
@@ -51,28 +56,30 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <NavLink to="/" className="font-bold text-lg sm:text-xl">
+          <HashLink smooth to="/#home" className="font-bold text-lg sm:text-xl">
             <span className="text-primary">Maha</span>devan
-          </NavLink>
+          </HashLink>
 
           {/* Desktop Nav */}
           <ul className="hidden md:flex gap-6">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) =>
-                    `relative px-2 py-1 text-sm font-medium transition-colors ${
-                      isActive
-                        ? "text-primary"
-                        : scrolled
-                        ? "text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white"
-                        : "text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white"
-                    }`
-                  }
-                >
-                  {link.name}
-                </NavLink>
+                {link.type === "scroll" ? (
+                  <HashLink
+                    smooth
+                    to={`/#${link.id}`}
+                    className="px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+                  >
+                    {link.name}
+                  </HashLink>
+                ) : (
+                  <NavLink
+                    to={link.path}
+                    className="px-2 py-1 text-sm font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+                  >
+                    {link.name}
+                  </NavLink>
+                )}
               </li>
             ))}
           </ul>
@@ -111,22 +118,28 @@ const Navbar = () => {
                 transition={{ duration: 0.25 }}
                 className="absolute top-full mt-3 left-0 w-full rounded-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border border-gray-200 dark:border-gray-700 shadow-lg p-6 flex flex-col items-center space-y-6 md:hidden"
               >
-                {navLinks.map((link) => (
-                  <NavLink
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={({ isActive }) =>
-                      `text-lg font-medium ${
-                        isActive
-                          ? "text-primary"
-                          : "text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white"
-                      }`
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
+                {navLinks.map((link) =>
+                  link.type === "scroll" ? (
+                    <HashLink
+                      key={link.name}
+                      smooth
+                      to={`/#${link.id}`}
+                      onClick={() => setIsOpen(false)}
+                      className="text-lg font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+                    >
+                      {link.name}
+                    </HashLink>
+                  ) : (
+                    <NavLink
+                      key={link.name}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className="text-lg font-medium text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-white"
+                    >
+                      {link.name}
+                    </NavLink>
+                  )
+                )}
               </motion.div>
             )}
           </AnimatePresence>

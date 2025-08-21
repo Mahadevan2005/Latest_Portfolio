@@ -21,28 +21,26 @@ const Home = () => {
       <Education />
       
       {/* Contact Section */}
-      <section id="contact" className="section">
-        <div className="container-custom">
-          <SectionHeading 
-            title="Get In Touch" 
-            subtitle="Have a question or want to work together? Drop me a message!"
-            centered
-          />
-          
+      <section id="contact" className="section bg-white dark:bg-gray-800 py-16 px-4 sm:px-6 lg:px-8">
+          <div className="container-custom">
+            <SectionHeading title="Let's Connect!" />
+            <p className="text-gray-600 dark:text-stone-200 text-base sm:text-lg max-w-2xl mx-auto mb-6">
+              Whether you're looking to collaborate on a project, need a solution to a challenging problem, 
+              or just want to talk tech, feel free to reach out. Together, we can turn ideas into reality.
+            </p>
+          </div>
+
           <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="max-w-3xl mx-auto"
           >
-            <div className="bg-card border rounded-lg p-6 sm:p-8 shadow-sm">
-              <ContactForm />
-            </div>
+            <ContactForm />
           </motion.div>
+        </section>
         </div>
-      </section>
-    </div>
   );
 };
 
