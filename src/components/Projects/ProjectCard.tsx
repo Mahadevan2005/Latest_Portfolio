@@ -95,7 +95,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       {/* Content */}
       <div className="p-6 flex flex-col flex-grow">
         <div className="flex-grow">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-amber-300 mb-2">{project.title}</h3>
+          <h3 className="text-xl font-md text-gray-900 dark:text-amber-300 mb-2">{project.title}</h3>
           <p className="text-base leading-relaxed mb-4 text-stone-600 dark:text-stone-100">
             {project.description}
           </p>

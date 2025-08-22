@@ -53,6 +53,7 @@ export default {
         grotesk: ['"Space Grotesk"', 'sans-serif'],
       },
       animation: {
+        'breathe': 'breathe 2s ease-in-out infinite',
         'fade-in': 'fadeIn 0.5s ease-in-out forwards',
         'slide-up': 'slideUp 0.5s ease-out forwards',
         'slide-down': 'slideDown 0.5s ease-out forwards',
@@ -74,6 +75,10 @@ export default {
         scaleIn: {
           '0%': { transform: 'scale(0.9)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        breathe: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.05)' },
         },
       },
     },

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, FileText } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
@@ -56,9 +56,16 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <HashLink smooth to="/#home" className="font-bold text-lg sm:text-xl">
-            <span className="text-primary">Maha</span>devan
-          </HashLink>
+          <a
+              href="https://drive.google.com/file/d/1597qJ2TeOCFWdNNpYAmqFnZvw65zUVLH/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-amber-200/10 dark:hover:bg-amber-200/20 transition transform animate-breathe cursor-pointer"
+              aria-label="Open my resume"
+            >
+              <FileText className="h-5 w-5 text-primary dark:text-amber-200" />
+              <span className="text-sm font-medium text-primary dark:text-amber-200">Resume</span>
+          </a>
 
           {/* Desktop Nav */}
           <ul className="hidden md:flex gap-6">

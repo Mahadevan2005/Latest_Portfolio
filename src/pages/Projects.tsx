@@ -124,7 +124,7 @@ const Projects = () => {
     : projectsData;
 
   return (
-    <div className="min-h-screen py-12 sm:py-16">
+    <div className="min-h-screen py-12 sm:py-16 bg-gradient-to-b from-amber-50 via-white to-amber-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

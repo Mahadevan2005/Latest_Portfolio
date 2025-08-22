@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Award, ExternalLink, Calendar } from 'lucide-react';
+import { Award, ExternalLink, Calendar, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export interface AckoladeProps {
@@ -18,81 +18,68 @@ interface AckoladeCardProps {
 
 const AckoladeCard = ({ ackolade, index }: AckoladeCardProps) => {
   const [showFullImage, setShowFullImage] = useState(false);
-  
+
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="card overflow-hidden h-full flex flex-col hover:shadow-md transition-all duration-300"
+        transition={{ duration: 0.7, delay: index * 0.1 }}
+        className="relative flex flex-col overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-white/20 dark:border-gray-700"
       >
-        <div className="relative overflow-hidden h-48 sm:h-56 border-b">
-          <img 
-            src={ackolade.image} 
+        {/* Image */}
+        <div className="relative overflow-hidden h-56 border-b rounded-t-3xl">
+          <img
+            src={ackolade.image}
             alt={ackolade.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
           />
-          <div className="absolute bottom-0 right-0 bg-card/90 px-3 py-1 text-xs font-medium rounded-tl-md backdrop-blur-sm border-l border-t flex items-center gap-1">
-            <Calendar className="h-3 w-3" />
-            {ackolade.date}
+          <div className="absolute bottom-2 right-2 bg-white/60 dark:bg-gray-700/60 px-3 py-1 text-xs font-semibold rounded-tl-md backdrop-blur-sm border border-white/20 dark:border-gray-600 flex items-center gap-1">
+            <Calendar className="h-3 w-3" /> {ackolade.date}
           </div>
         </div>
-        
-        <div className="p-6 flex-grow flex flex-col">
-          <div className="flex-grow">
-            <div className="flex items-start gap-3 mb-3">
-              <Award className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-              <h3 className="text-xl font-medium">{ackolade.title}</h3>
-            </div>
-            
-            {ackolade.issuer && (
-              <p className="text-sm text-muted-foreground mb-3">
-                Issued by: {ackolade.issuer}
-              </p>
-            )}
-            
-            <p className="text-muted-foreground mb-4">{ackolade.description}</p>
+
+        {/* Content */}
+        <div className="p-6 flex flex-col flex-grow">
+          <div className="flex items-center gap-3 mb-3">
+            <Award className="h-5 w-5 text-amber-500 dark:text-amber-300" />
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-amber-200">{ackolade.title}</h3>
           </div>
-          
+          {ackolade.issuer && <p className="text-sm mb-3 text-gray-600 dark:text-amber-300">Issued by: {ackolade.issuer}</p>}
+          <p className="text-gray-700 dark:text-stone-200 mb-4">{ackolade.description}</p>
+
           <button
             onClick={() => setShowFullImage(true)}
-            className="btn btn-outline w-full text-sm flex items-center justify-center gap-1"
-            aria-label={`View full certificate for ${ackolade.title}`}
+            className="mt-auto w-full py-2 text-sm font-medium flex items-center justify-center gap-2 border border-amber-500 text-gray-900 dark:text-amber-200 rounded-xl hover:bg-amber-50 dark:hover:bg-gray-700 transition-all"
           >
-            <ExternalLink className="h-4 w-4" />
-            View Full Image
+            <ExternalLink className="w-4 h-4" /> View Certificate
           </button>
         </div>
       </motion.div>
-      
+
+      {/* Fullscreen Modal */}
       <AnimatePresence>
         {showFullImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
             onClick={() => setShowFullImage(false)}
           >
             <motion.div
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="relative max-w-4xl max-h-[90vh] overflow-auto bg-card rounded-lg shadow-xl"
+              className="relative max-w-4xl max-h-[90vh] overflow-auto rounded-3xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-              <img 
-                src={ackolade.image} 
-                alt={ackolade.title}
-                className="w-full h-auto"
-              />
+              <img src={ackolade.image} alt={ackolade.title} className="w-full h-auto rounded-2xl" />
               <button
                 onClick={() => setShowFullImage(false)}
-                className="absolute top-4 right-4 p-2 bg-background/80 rounded-full hover:bg-background transition-colors"
-                aria-label="Close"
+                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-colors"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                <X className="h-6 w-6 text-white" />
               </button>
             </motion.div>
           </motion.div>

@@ -1,5 +1,6 @@
-import { Briefcase, ArrowUpRight, Calendar } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Briefcase, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
+import { HiExternalLink } from "react-icons/hi"
 
 export interface ExperienceProps {
   id: number;
@@ -19,68 +20,87 @@ interface ExperienceCardProps {
 const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="card p-6 hover:shadow-md transition-all duration-300"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
+      className="group w-full sm:max-w-4xl mx-auto bg-white/80 dark:bg-gray-900/70 backdrop-blur-xl rounded-3xl border border-gray-200 dark:border-gray-800 shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 p-6 sm:p-8"
     >
-      <div className="flex items-start gap-4">
-        <div className="w-16 h-16 rounded-md overflow-hidden bg-muted flex-shrink-0 border flex items-center justify-center">
-          <img 
-            src={experience.logo} 
-            alt={`${experience.company} logo`} 
+      <div className="flex flex-col sm:flex-row sm:items-start gap-5">
+        {/* Logo */}
+        <motion.div
+          className="w-20 h-20 rounded-xl overflow-hidden bg-muted flex items-center justify-center border border-gray-200 dark:border-gray-700 flex-shrink-0"
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <img
+            src={experience.logo}
+            alt={`${experience.company} logo`}
             className="w-full h-full object-contain p-2"
           />
-        </div>
-        
-        <div className="flex-grow">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-            <h3 className="text-xl font-medium">{experience.role}</h3>
-            <div className="flex items-center text-muted-foreground text-sm">
-              <Calendar className="h-4 w-4 mr-1" />
+        </motion.div>
+
+        {/* Content */}
+        <div className="flex-1 flex flex-col">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-amber-200 group-hover:text-primary transition-colors">
+              {experience.role}
+            </h3>
+            <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm sm:text-base">
+              <Calendar className="h-4 w-4 mr-1 text-gray-400 dark:text-gray-500" />
               {experience.duration}
             </div>
           </div>
-          
-          <div className="flex items-center mb-4">
-            <Briefcase className="h-4 w-4 text-muted-foreground mr-2" />
-            <span className="text-lg font-medium">{experience.company}</span>
-            
+
+          <div className="flex items-center gap-2 mb-4">
+            <Briefcase className="h-4 w-4 text-gray-400 dark:text-gray-500" />
+            <span className="text-gray-700 dark:text-gray-300 font-medium text-base sm:text-lg">
+              {experience.company}
+            </span>
             {experience.website && (
               <a
                 href={experience.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-2 text-muted-foreground hover:text-primary transition-colors inline-flex items-center"
+                className="ml-0 flex items-center text-primary dark:text-amber-300 hover:text-primary/80 transition-colors"
                 aria-label={`Visit ${experience.company} website`}
               >
-                <ArrowUpRight className="h-4 w-4" />
+                <HiExternalLink size={18} />
               </a>
             )}
           </div>
-          
-          <ul className="space-y-2 mt-4">
+
+          <ul className="space-y-2 mt-2">
             {experience.description.map((item, i) => (
-              <li key={i} className="flex">
-                <span className="mr-2 text-primary font-medium">•</span>
-                <span className="text-muted-foreground">{item}</span>
-              </li>
+              <motion.li
+                key={i}
+                className="flex items-start gap-2 text-gray-900 dark:text-yellow-100 text-sm sm:text-base"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <span className="text-primary dark:text-amber-200 mt-1">•</span>
+                <span>{item}</span>
+              </motion.li>
             ))}
           </ul>
-          
+
           {experience.website && (
-            <div className="mt-4">
-              <a
-                href={experience.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline inline-flex items-center"
-                aria-label={`Visit ${experience.company} website`}
-              >
-                Visit Company
-                <ArrowUpRight className="h-4 w-4 ml-1" />
-              </a>
-            </div>
+            <motion.a
+              href={experience.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center text-primary dark:text-amber-300 hover:underline hover:text-primary/80 text-sm sm:text-base font-medium"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: experience.description.length * 0.1 }}
+            >
+              {/* Visit Company <ArrowUpRight className="h-4 w-4 ml-1" /> */}
+            </motion.a>
           )}
         </div>
       </div>

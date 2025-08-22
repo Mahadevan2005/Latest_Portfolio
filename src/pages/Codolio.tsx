@@ -7,76 +7,72 @@ const Codolio = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate iframe loading delay
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-    
+    const timer = setTimeout(() => setIsLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="min-h-screen py-12 sm:py-16">
-      <div className="container-custom">
+    <section className="min-h-screen py-16 sm:py-24 relative overflow-hidden
+      bg-gradient-to-b from-white via-amber-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-950">
+
+      {/* Premium Background Shapes */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full pointer-events-none">
+        <div className="absolute w-80 h-80 bg-gradient-to-tr from-cyan-200 to-purple-300 dark:from-purple-900 dark:to-cyan-700 rounded-full filter blur-4xl opacity-30 -top-24 -left-28"></div>
+        <div className="absolute w-96 h-96 bg-gradient-to-br from-pink-200 to-yellow-200 dark:from-yellow-900 dark:to-pink-700 rounded-full filter blur-4xl opacity-30 bottom-0 right-0"></div>
+      </div>
+
+      <div className="container-custom relative z-10 flex flex-col items-center">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl"
         >
-          <SectionHeading 
-            title="My Codolio" 
-            subtitle="Explore my coding journey and projects through Codolio's interactive showcase"
+          <SectionHeading
+            title="My Codolio"
+            subtitle="A curated showcase of my coding journey, GitHub contributions, and problem-solving milestones across platforms, reflecting my dedication to continuous learning, upskilling, and mastering problem-solving skills."
           />
-          
-          <div className="bg-card border rounded-lg p-6 mb-8 shadow-sm">
-            <h3 className="text-xl font-medium mb-4">About Codolio</h3>
-            <p className="mb-4">
-              Codolio is a platform that allows developers to showcase their coding projects, skills, and contributions in an interactive and engaging way. It provides a comprehensive view of my coding journey, including my GitHub repositories, contributions to open source, and coding statistics.
-            </p>
-            <p className="mb-6">
-              Explore the embedded Codolio page below to see a visual representation of my coding activity, popular repositories, language usage, and more.
-            </p>
-            <a 
-              href="https://codolio.com/profile/Mahadevan/card" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-primary hover:underline"
-            >
-              Visit Codolio
-              <ExternalLink className="ml-1 h-4 w-4" />
-            </a>
-          </div>
+          <a
+            href="https://codolio.com/profile/Mahadevan/card"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center font-medium text-primary hover:text-primary/80 dark:text-amber-200 dark:hover:text-amber-300 text-lg transition-colors duration-300"
+          >
+            Visit My Detailed Codolio
+            <ExternalLink className="ml-2 h-5 w-5" />
+          </a>
         </motion.div>
-        
+
+        {/* Codolio Embed - Full screen style with premium shadow and border pulse */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative aspect-video w-full bg-muted/30 rounded-lg overflow-hidden border"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="relative w-full h-[90vh] sm:h-[80vh] md:h-[70vh] overflow-hidden rounded-3xl shadow-2xl border-2 border-gray-300 dark:border-gray-700 mt-12 animate-breathe"
         >
-          {isLoading ? (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-white/50 dark:bg-gray-900/50 rounded-3xl">
+              <div className="animate-spin rounded-full h-14 w-14 border-t-4 border-b-4 border-primary dark:border-amber-200"></div>
             </div>
-          ) : (
-            <iframe
-              src="https://codolio.com/profile/Mahadevan/card" // Replace with your actual Codolio embed URL
-              title="Codolio Profile"
-              className="w-full h-full"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
           )}
-          
-          <div className="absolute inset-0 pointer-events-none border-2 border-transparent hover:border-primary/20 transition-colors duration-300"></div>
+          <iframe
+            src="https://codolio.com/profile/Mahadevan/card"
+            title="Codolio Profile"
+            className="absolute top-0 left-0 w-full h-full"
+            style={{ transform: 'translateY(-20px)' }}
+            loading="lazy"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </motion.div>
-        
-        <p className="text-center text-muted-foreground mt-4">
-          Note: You will need to replace the iframe src with your actual Codolio embed URL.
+
+        <p className="text-center text-muted-foreground dark:text-gray-400 mt-4 max-w-2xl">
+          This Codolio card is fully optimized for all screen sizes with a premium feel in both light and dark mode.
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

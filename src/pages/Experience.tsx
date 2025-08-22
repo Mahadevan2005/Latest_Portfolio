@@ -1,61 +1,71 @@
-import SectionHeading from '../components/SectionHeading';
-import ExperienceCard, { ExperienceProps } from '../components/Experience/ExperienceCard';
-import { motion } from 'framer-motion';
+import SectionHeading from "../components/SectionHeading";
+import ExperienceCard, { ExperienceProps } from "../components/Experience/ExperienceCard";
+import { motion } from "framer-motion";
 
-// Replace with your actual experience data
 const experienceData: ExperienceProps[] = [
   {
     id: 1,
-    company: "Tech Innovators Inc.",
-    role: "Senior Software Engineer",
-    logo: "https://images.pexels.com/photos/11035363/pexels-photo-11035363.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    duration: "Jan 2021 - Present",
+    company: "CODE IIT Madras (NPTEL)",
+    role: "Junior Developer Intern",
+    logo: "/experience/code_logo.jpeg",
+    duration: "February 2025 - April 2025",
     description: [
-      "Lead a team of 5 developers in building a scalable e-commerce platform using React, Node.js, and MongoDB",
-      "Implemented CI/CD pipelines that reduced deployment time by 40%",
-      "Optimized database queries resulting in a 30% improvement in application performance",
-      "Mentored junior developers and conducted code reviews to ensure high code quality standards"
+      "Designed and implemented an automated tool from scratch for NPTEL to compile lecture PDFs into structured E-Books using Python and Flask.",
+      "Reduced processing time from 3 hours to 5 minutes (90% time savings)",
+      "Streamlined collaborative development by managing feature branches and reviewing pull request using Git, resulting in a 40% reduction in merge conflicts and improved code quality across the team.",
+      "Improved code reliability and consistency by conducting thorough reviews and enforcing delivery standards, leading to a measurable drop in post-deployment issues and rework.",
     ],
-    website: "https://example.com"
+    website: "https://code.iitm.ac.in/",
   },
 ];
 
 const Experience = () => {
   return (
-    <div className="min-h-screen py-12 sm:py-16">
-      <div className="container-custom">
+    <section className="min-h-screen py-16 sm:py-20 
+        bg-gradient-to-b 
+          from-white/80 via-amber-50 to-white/90 
+        dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 
+        overflow-hidden relative">
+        
+        {/* Background Shapes */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none">
+          {/* Left Top Blob */}
+          <div className="absolute w-80 h-80 bg-gradient-to-tr 
+            from-cyan-200 to-purple-300 dark:from-purple-900 dark:to-cyan-700 
+            rounded-full filter blur-4xl opacity-30 -top-20 -left-24"></div>
+
+          {/* Right Bottom Blob */}
+          <div className="absolute w-96 h-96 bg-gradient-to-br 
+            from-pink-200 to-yellow-200 dark:from-yellow-900 dark:to-pink-700 
+            rounded-full filter blur-4xl opacity-30 bottom-0 right-0"></div>
+          
+          {/* Center Soft Glow */}
+          <div className="absolute w-72 h-72 bg-gradient-to-r from-cyan-100 via-white to-amber-100 
+            rounded-full filter blur-3xl opacity-20 top-1/3 left-1/2 -translate-x-1/2"></div>
+        </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <SectionHeading 
-            title="Professional Experience" 
+          <SectionHeading
+            title="Professional Experience"
             subtitle="My journey through various roles and companies in the tech industry"
           />
         </motion.div>
-        
-        {/* Experience Timeline */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-8 relative"
-        >
-          {/* Timeline Line */}
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-muted/50 hidden sm:block"></div>
-          
-          {experienceData.map((experience, index) => (
-            <div key={experience.id} className="relative sm:pl-14">
-              {/* Timeline Dot */}
-              <div className="absolute left-0 top-6 w-3 h-3 bg-primary rounded-full transform -translate-x-1/2 hidden sm:block"></div>
-              
-              <ExperienceCard experience={experience} index={index} />
-            </div>
+
+        {/* Experience Cards */}
+        <div className="mt-12 space-y-12">
+          {experienceData.map((exp, idx) => (
+            <ExperienceCard key={exp.id} experience={exp} index={idx} />
           ))}
-        </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
