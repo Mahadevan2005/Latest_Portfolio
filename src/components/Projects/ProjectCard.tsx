@@ -41,7 +41,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         {project.images.length > 1 ? (
           <Swiper
             modules={[Pagination, Navigation]}
-            pagination={{ clickable: true }}
+            pagination={false}
             loop
             onBeforeInit={(swiper) => {
               if (typeof swiper.params.navigation !== 'boolean') {
