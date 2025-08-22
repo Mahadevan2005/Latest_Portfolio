@@ -2,13 +2,13 @@ import { useState, useRef } from 'react';
 import { ExternalLink, Github, Play, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
 export interface ProjectProps {
   id: number;
   title: string;
   description: string;
-  images: string[]; // multiple images
+  images: string[];
   tags: string[];
   sourceUrl?: string;
   liveUrl?: string;
@@ -22,8 +22,6 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  // refs for custom nav buttons
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
 
@@ -32,38 +30,36 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="card overflow-hidden h-full flex flex-col hover:shadow-lg transition-all duration-300 rounded-2xl"
+      className="card flex flex-col h-full rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Swiper for multiple images */}
-        <div className="relative h-48 sm:h-56">
+      {/* Image / Swiper */}
+      <div className="relative w-full flex-shrink-0 rounded-t-2xl overflow-hidden bg-gray-100 aspect-w-16 aspect-h-9">
         {project.images.length > 1 ? (
           <Swiper
-            modules={[Pagination, Navigation]}
-            pagination={false}
+            modules={[Navigation]}
             loop
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
             onBeforeInit={(swiper) => {
               if (typeof swiper.params.navigation !== 'boolean') {
                 swiper.params.navigation!.prevEl = prevRef.current;
                 swiper.params.navigation!.nextEl = nextRef.current;
               }
             }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
+            pagination={false}
             className="w-full h-full"
           >
             {project.images.map((img, idx) => (
-              <SwiperSlide key={idx}>
+              <SwiperSlide key={idx} className="flex justify-center items-center">
                 <img
                   src={img}
                   alt={`${project.title} - ${idx + 1}`}
-                  className="w-full h-60 object-cover rounded-t-2xl"
-                  style={{
-                    transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-                  }}
+                  className="h-full w-full object-contain object-center transition-transform duration-300"
+                  style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
                 />
               </SwiperSlide>
             ))}
@@ -72,14 +68,12 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           <img
             src={project.images[0]}
             alt={project.title}
-            className="w-full h-60 object-cover rounded-t-2xl"
-            style={{
-              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-            }}
+            className="h-full w-full object-contain object-center transition-transform duration-300"
+            style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
           />
         )}
 
-        {/* Only render navigation buttons if multiple images */}
+        {/* Navigation buttons */}
         {project.images.length > 1 && (
           <>
             <button
@@ -99,7 +93,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex-grow flex flex-col">
+      <div className="p-6 flex flex-col flex-grow">
         <div className="flex-grow">
           <h3 className="text-xl font-bold text-gray-900 dark:text-amber-300 mb-2">{project.title}</h3>
           <p className="text-base leading-relaxed mb-4 text-stone-600 dark:text-stone-100">
