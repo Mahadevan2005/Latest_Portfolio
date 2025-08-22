@@ -37,7 +37,7 @@ const projectsData: ProjectProps[] = [
     title: "Influencer Engagement and Sponsorship Coordination Platform - V1",
     description: "A web platform developed to connect sponsors and influencers for effective product marketing, featuring campaign CRUD, role-based authentication, admin dashboard, and data visualization with Matplotlib. (Best Project Award at IIT Madras.)",
     images: ["/projects/iescp_v1/iescp_home.png", "/projects/iescp_v1/spon_dash.png", "/projects/iescp_v1/admin_dash.png"],
-    tags: ["React", "Socket.io", "Node.js", "Express"],
+    tags: ["HTML5", "CSS3", "Flask", "SQLAlchemy", "Jinja2", "SQLite", "Matplotlib"],
     sourceUrl: "https://github.com/Mahadevan2005/Influencer-Engagement-and-Sponsorship-Coordination-Platform-Version_1",
     demoUrl: "https://drive.google.com/file/d/1z_kcOFAl7IJ_DXpZd8JPZdIa6fxc0ZJI/view"
   },
