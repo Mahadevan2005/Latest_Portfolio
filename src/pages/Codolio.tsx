@@ -67,10 +67,6 @@ const Codolio = () => {
             allowFullScreen
           ></iframe>
         </motion.div>
-
-        <p className="text-center text-muted-foreground dark:text-gray-400 mt-4 max-w-2xl">
-          This Codolio card is fully optimized for all screen sizes with a premium feel in both light and dark mode.
-        </p>
       </div>
     </section>
   );
