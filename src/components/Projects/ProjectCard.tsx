@@ -37,51 +37,65 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Swiper for multiple images */}
-      <div className="relative h-48 sm:h-56">
-        <Swiper
-          modules={[Pagination, Navigation]}
-          pagination={{ clickable: true }}
-          loop
-          onBeforeInit={(swiper) => {
-            // bind swiper navigation to refs
-            if (typeof swiper.params.navigation !== 'boolean') {
-              swiper.params.navigation!.prevEl = prevRef.current;
-              swiper.params.navigation!.nextEl = nextRef.current;
-            }
-          }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          className="w-full h-full"
-        >
-          {project.images.map((img, idx) => (
-            <SwiperSlide key={idx}>
-              <img
-                src={img}
-                alt={`${project.title} - ${idx + 1}`}
-                className="w-full h-60 object-cover rounded-t-2xl"
-                style={{
-                  transform: isHovered ? 'scale(1.05)' : 'scale(1)',
-                }}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        <div className="relative h-48 sm:h-56">
+        {project.images.length > 1 ? (
+          <Swiper
+            modules={[Pagination, Navigation]}
+            pagination={{ clickable: true }}
+            loop
+            onBeforeInit={(swiper) => {
+              if (typeof swiper.params.navigation !== 'boolean') {
+                swiper.params.navigation!.prevEl = prevRef.current;
+                swiper.params.navigation!.nextEl = nextRef.current;
+              }
+            }}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            className="w-full h-full"
+          >
+            {project.images.map((img, idx) => (
+              <SwiperSlide key={idx}>
+                <img
+                  src={img}
+                  alt={`${project.title} - ${idx + 1}`}
+                  className="w-full h-60 object-cover rounded-t-2xl"
+                  style={{
+                    transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+                  }}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          <img
+            src={project.images[0]}
+            alt={project.title}
+            className="w-full h-60 object-cover rounded-t-2xl"
+            style={{
+              transform: isHovered ? 'scale(1.05)' : 'scale(1)',
+            }}
+          />
+        )}
 
-        {/* Custom navigation buttons */}
-        <button
-          ref={prevRef}
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/70 rounded-full shadow hover:bg-white transition"
-        >
-          <ChevronLeft className="w-4 h-4 text-gray-800" />
-        </button>
-        <button
-          ref={nextRef}
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/70 rounded-full shadow hover:bg-white transition"
-        >
-          <ChevronRight className="w-4 h-4 text-gray-800" />
-        </button>
+        {/* Only render navigation buttons if multiple images */}
+        {project.images.length > 1 && (
+          <>
+            <button
+              ref={prevRef}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/70 rounded-full shadow hover:bg-white transition"
+            >
+              <ChevronLeft className="w-4 h-4 text-gray-800" />
+            </button>
+            <button
+              ref={nextRef}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/70 rounded-full shadow hover:bg-white transition"
+            >
+              <ChevronRight className="w-4 h-4 text-gray-800" />
+            </button>
+          </>
+        )}
       </div>
 
       {/* Content */}
