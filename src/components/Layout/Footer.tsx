@@ -106,7 +106,7 @@ const Footer = () => {
 
     {/* Bottom Bar */}
     <div className="border-t border-gray-300 dark:border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-600 dark:text-gray-400 text-sm">
-      <p>© {currentYear} DevPortfolio. All rights reserved.</p>
+      <p>© {currentYear} Mahadevan Manikandan. All rights reserved.</p>
       <p className="mt-2 md:mt-0">
         Designed & Built with <span className="text-red-500 animate-pulse">❤️</span>
       </p>
