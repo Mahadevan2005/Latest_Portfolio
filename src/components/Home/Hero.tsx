@@ -19,7 +19,7 @@ const Hero = () => {
       {/* Centered CTA */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex gap-8">
         <a
-          href="https://www.linkedin.com/in/mahadevan-m-8966b124a/"
+          href="https://www.linkedin.com/in/mahadevan-in/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-0 text-white font-semibold hover:text-pink-500 transition flex-nowrap"
