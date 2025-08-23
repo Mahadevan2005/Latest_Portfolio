@@ -54,7 +54,7 @@ const Experience = () => {
         >
           <SectionHeading
             title="Professional Experience"
-            subtitle="My journey through various roles and companies in the tech industry"
+            subtitle="Exploring, learning, and growing through tech industry opportunities."
           />
         </motion.div>
 

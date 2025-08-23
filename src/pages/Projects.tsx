@@ -133,7 +133,7 @@ const Projects = () => {
         >
           <SectionHeading 
             title="Projects" 
-            subtitle="A collection of my recent work and personal projects"
+            subtitle="A collection of my recent work and personal projects."
           />
           
           {/* Filters */}

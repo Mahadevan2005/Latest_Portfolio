@@ -1,14 +1,27 @@
 import SectionHeading from "../SectionHeading";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaLightbulb, FaUsers, FaCodeBranch } from "react-icons/fa";
+import { 
+  FaLaptopCode, 
+  FaProjectDiagram, 
+  FaUsers, 
+  FaLightbulb, 
+  FaRocket, 
+  FaServer, 
+  FaMobileAlt, 
+  FaChartLine 
+} from "react-icons/fa";
 
 const About = () => {
   const highlights = [
-    { icon: <FaLaptopCode />, title: "Full-Stack Dev", subtitle: "Web & App" },
-    { icon: <FaLightbulb />, title: "Creative Thinker", subtitle: "Problem Solver" },
-    { icon: <FaUsers />, title: "Team Player", subtitle: "Collaboration" },
-    { icon: <FaCodeBranch />, title: "Open Source", subtitle: "Contributor" },
-  ];
+  { icon: <FaProjectDiagram />, title: "Problem Solver", subtitle: "Algorithmic & Logical Thinking" },
+  { icon: <FaLaptopCode />, title: "Full-Stack Developer", subtitle: "React, Vue, Flask, SpringBoot" },
+  { icon: <FaServer />, title: "Backend Enthusiast", subtitle: "APIs, Databases & Server Logic" },
+  { icon: <FaMobileAlt />, title: "Responsive UI Designer", subtitle: "Mobile, Tablet & Desktop" },
+  { icon: <FaUsers />, title: "Team Collaborator", subtitle: "Agile & Cross-functional Teams" },
+  { icon: <FaLightbulb />, title: "Innovative Thinker", subtitle: "Creative & Practical Solutions" },
+  { icon: <FaRocket />, title: "Continuous Learner", subtitle: "Exploring Latest Tech Trends & Improving Skills" },
+  { icon: <FaChartLine />, title: "Performance Oriented", subtitle: "Optimized Code & Efficient Solutions" },
+];
 
   return (
     <section

@@ -1,3 +1,5 @@
+import SectionHeading from "../SectionHeading";
+
 const skillsLogos = [
   // 🟢 Programming Languages
   { name: "Java", src: "/skills/java.svg" },
@@ -42,10 +44,8 @@ export default function Skills() {
       id="skills"
       className="section bg-gradient-to-b from-amber-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 overflow-hidden"
     >
-      <div className="container-custom">
-        <h2 className="text-3xl font-bold mb-6 text-center text-indigo-600 dark:text-blue-400">
-          Tech Skills & Tools
-        </h2>
+      <div className="container-custom lg:text-left">
+        <SectionHeading title="Technical Skills & Tools" />
         <p className="text-center text-gray-600 dark:text-cyan-300 mb-8 max-w-2xl mx-auto text-lg">
           These are the core technologies and tools I work with to build
           scalable, performant, and visually appealing applications.

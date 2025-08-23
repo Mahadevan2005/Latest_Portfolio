@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const ackoladesData: AckoladeProps[] = [
   {
     id: 1,
-    title: "IITM BS Degree Admission",
+    title: "IITM BS Degree Admission Letter",
     description: "Secured admission to IIT Madras B.Sc. Data Science and Applications program after intensive preparation, demonstrating strong analytical and problem-solving skills during the entrance examination.",
     image: "/accolades/qualifier_cert.png",
     date: "July 2023",
@@ -22,7 +22,7 @@ const ackoladesData: AckoladeProps[] = [
   },
   {
     id: 3,
-    title: "AWS Cloud Practitioner Cert",
+    title: "AWS Cloud Practitioner Certification",
     description: "Completed gamified AWS Cloud Practitioner learning, mastering EC2, S3, IAM, RDS, scalability, elasticity, high availability, and shared responsibility model through hands-on exercises.",
     image: "/accolades/aws_cloud_quest.png",
     date: "July 2025",
@@ -30,7 +30,7 @@ const ackoladesData: AckoladeProps[] = [
   },
   {
     id: 4,
-    title: "AWS Cloud Essentials Cert",
+    title: "AWS Cloud Essentials Certification",
     description: "Learned cloud computing fundamentals and AWS global infrastructure, gaining skills in EC2, S3, RDS, scalability, reliability, and secure cloud solution implementation.",
     image: "/accolades/aws_cloud_essen.png",
     date: "June 2025",
@@ -54,7 +54,7 @@ const ackoladesData: AckoladeProps[] = [
   },
   {
     id: 7,
-    title: "AWS Generative AI",
+    title: "AWS Generative AI Certification",
     description: "Gained foundational knowledge of generative AI, model types, use cases, ethical considerations, and AWS AI workflows, understanding the practical potential of generative models.",
     image: "/accolades/aws_genai.png",
     date: "June 2025",

@@ -11,15 +11,19 @@ const educationData = [
     location: "Chennai, TamilNadu, India",
     duration: "2022 - 2026",
     description:
-      "Pursuing a Bachelor's in Computer Science and Engineering, with a strong focus on becoming a thoughtful and skilled software developer.",
+      "Pursuing Bachelor's in Computer Science and Engineering, with a strong focus on becoming a thoughtful and skilled software developer.",
     achievements: [
-      "CGPA - 9.48/10",
-      "Relevant Courses: Data Structures, Algorithms, AI & ML, UI/UX Design, Computer Vision",
+      "CGPA - 9.48/10 (Rank 1 in the Department)",
+      "General Proficiency Award – 2 Consecutive Years, awarded for overall academic and extracurricular excellence.",
+      "Completed LEAP Program – gained hands-on experience in IIT-style product-driven projects and real-world problem solving in multidisciplinary teams.",
+      "Winner & Participant in Inter-College Speech Competitions – developed communication and presentation skills.",
+      "Idea Approved by YUKTI Hackathon Committee – selected among top projects for innovation and feasibility.",
+      "Relevant Courses: Data Structures & Algorithms, AI & ML, Operating Systems, Computer Networks, Database Management Systems, Software Testing",
     ],
   },
   {
     id: 2,
-    degree: "B.S in Data Science and Applications",
+    degree: "B.S Data Science and Applications",
     institution: "Indian Institute of Technology Madras",
     location: "Chennai, TamilNadu, India",
     duration: "2023 - 2026",
@@ -27,18 +31,22 @@ const educationData = [
       "Studying Data Science, curious about programming, how data reveals patterns, and how it can be used to solve problems in many areas.",
     achievements: [
       "CGPA - 8.29/10",
-      "Relevant Courses: Statistics, Mathematics, Modern App Development, DBMS",
+      "Best Capstone Project Award – recognized for excellence in app development.",
+      "Completed Foundation Level – established strong basics in mathematics and statistics for data science.",
+      "Completed Diploma in Programming Level – gained hands-on experience in app development (Vue.js, Flask, SQL), Java programming, Linux (bash), and database management.",
+      "Top 5% Ranking – achieved in DBMS, Statistics, System Commands, and Modern App Development (MAD-1) courses.",
+      "Relevant Courses: Statistics, Mathematics, Python, Linux, Java, Modern App Development, DSA, DBMS, ML Foundations, ML Techniques, Tools in Data Science",
     ],
   },
 ];
 
 const Education = () => {
   return (
-    <section id="education" className="py-16 bg-gradient-to-br from-background via-secondary/10 to-background">
+    <section id="education" className="py-16 bg-gradient-to-b from-amber-50 via-white to-amber-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="Education"
-          subtitle="My academic background and qualifications"
+          subtitle="My academic background and qualifications."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
@@ -105,13 +113,27 @@ const EducationItem = ({ education, index }: EducationItemProps) => {
         <div>
           <h4 className="font-medium mb-2 text-foreground">Academic Overview</h4>
           <ul className="space-y-1 text-sm">
-            {education.achievements.map((achievement, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-primary font-bold">•</span>
-                <span className="text-muted-foreground">{achievement}</span>
-              </li>
-            ))}
+            {education.achievements
+              .filter(a => !a.startsWith("Relevant Courses"))
+              .map((achievement, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="text-primary font-bold">•</span>
+                  <span className="text-muted-foreground">{achievement}</span>
+                </li>
+              ))}
           </ul>
+        </div>
+      )}
+
+      {/* Relevant Courses */}
+      {education.achievements.some(a => a.startsWith("Relevant Courses")) && (
+        <div className="mt-2">
+          <h4 className="font-medium mb-1 text-foreground">Relevant Courses</h4>
+          <p className="text-sm sm:text-base text-muted-foreground">
+            {education.achievements
+              .find(a => a.startsWith("Relevant Courses"))
+              ?.replace("Relevant Courses: ", "")}
+          </p>
         </div>
       )}
     </motion.div>

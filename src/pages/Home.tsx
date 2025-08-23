@@ -21,7 +21,7 @@ const Home = () => {
       <Education />
       
       {/* Contact Section */}
-      <section id="contact" className="section bg-white dark:bg-gray-800 py-16 px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="section bg-gradient-to-b from-amber-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 overflow-hidden">
           <div className="container-custom">
             <SectionHeading title="Let's Connect!" />
             <p className="text-gray-600 dark:text-stone-200 text-base sm:text-lg max-w-2xl mx-auto mb-6">
