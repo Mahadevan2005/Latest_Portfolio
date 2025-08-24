@@ -161,7 +161,7 @@ const ackoladesData: AckoladeProps[] = [
     title: "NPTEL+ SQL Workshop",
     description: "Completed two-day SQL workshop on cricket data analysis using PostgreSQL, learning dataset extraction, data analysis, and hands-on database manipulation.",
     image: "/accolades/sql_workshop.png",
-    date: "February 2023",
+    date: "February 2024",
     issuer: "NPTEL+"
   },
   {
