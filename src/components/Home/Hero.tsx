@@ -35,7 +35,7 @@ const Hero = () => {
           GitHub <HiExternalLink size={18} />
         </a>
         <a
-          href="https://drive.google.com/file/d/1597qJ2TeOCFWdNNpYAmqFnZvw65zUVLH/view?usp=sharing"
+          href="https://drive.google.com/file/d/1bWSnzhpiLwQ8vWX6Kmp-kzAKnuCcCPVW/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-0 text-white font-semibold hover:text-pink-500 transition flex-nowrap"
