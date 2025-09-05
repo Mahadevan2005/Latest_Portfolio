@@ -22,6 +22,14 @@ const ackoladesData: AckoladeProps[] = [
   },
   {
     id: 3,
+    title: "Flipkart GRiD 7.0 Semi-finalist",
+    description: "Selected as one of the National Semi-Finalists in Flipkart GRiD 7.0, a highly competitive tech challenge with 1.6+ lakh participants across India. Demonstrated strong problem-solving skills in Data Structures, Algorithms, along with the ability to apply logical reasoning and coding expertise to real-world challenges.",
+    image: "/accolades/flipkart_grid_cert.png",
+    date: "August 2025",
+    issuer: "Flipkart"
+  },
+  {
+    id: 3,
     title: "AWS Cloud Practitioner Certification",
     description: "Completed gamified AWS Cloud Practitioner learning, mastering EC2, S3, IAM, RDS, scalability, elasticity, high availability, and shared responsibility model through hands-on exercises.",
     image: "/accolades/aws_cloud_quest.png",
