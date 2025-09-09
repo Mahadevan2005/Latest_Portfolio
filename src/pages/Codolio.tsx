@@ -24,7 +24,7 @@ const highlights = [
   { icon: <FaJava />, title: "Java ⭐⭐⭐⭐⭐", subtitle: "Awarded by HackerRank." },
   { icon: <FaPython />, title: "Python ⭐⭐⭐⭐⭐", subtitle: "Awarded by HackerRank." },
   { icon: <FaAward />, title: "20+ Awards & Badges", subtitle: "Including LeetCode 100 Days, CodeStudio Specialist Badges." },
-  { icon: <FaCodeBranch />, title: "800+ Commits", subtitle: "Consistent coding streak & contributions." },
+  { icon: <FaCodeBranch />, title: "825+ Commits", subtitle: "Consistent coding streak & contributions." },
   { icon: <FaLayerGroup />, title: "Algorithmic Thinking", subtitle: "Breaking down complex problems into efficient solutions." },
 ];
 
