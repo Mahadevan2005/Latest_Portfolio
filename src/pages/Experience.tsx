@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const experienceData: ExperienceProps[] = [
   {
     id: 1,
-    company: "IIT Madras (BS Degree Programme)",
+    company: "IIT Madras (BS in Data Science Programme)",
     role: "Software Developer Intern",
     logo: "/experience/iitm_bs_logo.png",
     duration: "September 2025 - Present",
