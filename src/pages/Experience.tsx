@@ -5,7 +5,19 @@ import { motion } from "framer-motion";
 const experienceData: ExperienceProps[] = [
   {
     id: 1,
-    company: "CODE IIT Madras (NPTEL)",
+    company: "IIT Madras (BS Degree Programme)",
+    role: "Software Developer Intern",
+    logo: "/experience/iitm_bs_logo.png",
+    duration: "September 2025 - Present",
+    description: [
+      "Contributing as a Software Developer Intern, focusing on building and enhancing applications within the IIT Madras BS in Data Science & Applications Programme.",
+      "Resolved critical issues in payment workflows, course enrollment, and user dashboards, improving system stability and enhancing the experience for 50+ students."
+    ],
+    website: "https://study.iitm.ac.in/ds/",
+  },
+  {
+    id: 2,
+    company: "Centre for Outreach and Digital Education (CODE / NPTEL)",
     role: "Junior Developer Intern",
     logo: "/experience/code_logo.jpeg",
     duration: "February 2025 - April 2025",
