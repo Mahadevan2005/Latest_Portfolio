@@ -3,6 +3,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home';
+import Thoughts from './pages/Thoughts';
+import ThoughtDetail from './pages/ThoughtDetail';
 import Projects from './pages/Projects';
 import Accolades from './pages/Accolades';
 import Experience from './pages/Experience';
@@ -10,7 +12,7 @@ import Codolio from './pages/Codolio';
 import HelloAnimation from './components/HelloAnimation';
 import About from './components/Home/About'
 import ContactForm from './components/ContactForm';
-import SectionHeading from './components/SectionHeading';
+import SectionHeading from './components/SectionHeading';;
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
@@ -43,6 +45,8 @@ const App: React.FC = () => {
                 <Route path="/accolades" element={<Accolades />} />
                 <Route path="/experience" element={<Experience />} />
                 <Route path="/codolio" element={<Codolio />} />
+                <Route path="/thoughts" element={<Thoughts />} />
+                <Route path="/thoughts/:id" element={<ThoughtDetail />} />
                 <Route
                 path="/contact"
                 element={
