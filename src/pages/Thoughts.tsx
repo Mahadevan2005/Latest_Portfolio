@@ -22,7 +22,7 @@ const Thoughts = () => {
                 transition={{ duration: 0.7 }}
               >
                 <SectionHeading 
-                  title="Thoughts" 
+                  title="Thoughts & Reflections" 
                   subtitle="Uncompiled fragments of how I see, feel, and make sense of the world." 
                 />
               </motion.div>
