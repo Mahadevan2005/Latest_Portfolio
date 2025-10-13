@@ -10,7 +10,7 @@ const experienceData: ExperienceProps[] = [
     logo: "/experience/iitm_bs_logo.png",
     duration: "September 2025 - Present",
     description: [
-      "Contributing as a Software Developer Intern, focusing on building and enhancing applications within the IIT Madras BS in Data Science & Applications Programme.",
+      "Developed a Python-based QC automation script to process and validate 60K+ data rows, automating manual checks and cutting verification time by 70%, ensuring accurate, reliable reports across centers.",
       "Resolved critical issues in payment workflows, course enrollment, and user dashboards, improving system stability and enhancing the experience for 50+ students."
     ],
     website: "https://study.iitm.ac.in/ds/",
