@@ -62,6 +62,14 @@ const ackoladesData: AckoladeProps[] = [
   },
   {
     id: 8,
+    title: "Object Oriented Programming",
+    description: "Gained a strong understanding of OOP concepts including encapsulation, inheritance, polymorphism, and abstraction through hands-on problem-solving and real-world implementation using Java. Developed modular and maintainable code by applying object-oriented design principles.",
+    image: "/accolades/tuf_oops_cert.png",
+    date: "October 2025",
+    issuer: "takeUforward"
+  },
+  {
+    id: 9,
     title: "McKinsey Forward Program",
     description: "Enhanced problem-solving, structured thinking, and communication skills through the McKinsey Forward Program, applying strategic and empathetic approaches to deliver impactful solutions.",
     image: "/accolades/mckinsey_cert.png",
@@ -69,7 +77,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "McKinsey & Company"
   },
   {
-    id: 9,
+    id: 10,
     title: "AWS Generative AI Certification",
     description: "Gained foundational knowledge of generative AI, model types, use cases, ethical considerations, and AWS AI workflows, understanding the practical potential of generative models.",
     image: "/accolades/aws_genai.png",
@@ -77,7 +85,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "Amazon Web Services"
   },
   {
-    id: 10,
+    id: 11,
     title: "Postman API Fundamentals",
     description: "Completed hands-on API certification using Postman, learning HTTP methods, status codes, authentication, request structures, and effective API interaction and testing.",
     image: "/accolades/postman_cert.png",
@@ -85,7 +93,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "Postman"
   },
   {
-    id: 11,
+    id: 12,
     title: "Diploma in Programming - IIT Madras",
     description: "Completed IITM Diploma in Programming, mastering modern application development. Topped courses, scored perfect marks in projects, and built strong foundation in programming and software engineering.",
     image: "/accolades/diploma_cert.png",
@@ -93,7 +101,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "IIT Madras"
   },
   {
-    id: 12,
+    id: 13,
     title: "Junior Developer Internship - CODE IIT Madras",
     description: "Contributed to EBook Creation System for NPTEL, collaborating with IITM developers, enhancing technical skills, code reviews, and teamwork in a fast-paced, innovation-driven environment.",
     image: "/accolades/code_cert.png",
@@ -101,7 +109,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "CODE IIT Madras"
   },
   {
-    id: 13,
+    id: 14,
     title: "Best Project Award - Modern App Development",
     description: "Received Best Project Award for IESCP V1 project, connecting influencers with sponsors. Strengthened full-stack development, database management, and user-centric application design skills.",
     image: "/accolades/app_dev_badge.png",
@@ -109,7 +117,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "IIT Madras"
   },
   {
-    id: 14,
+    id: 15,
     title: "UI/UX Design Internship - THISUX",
     description: "Gained hands-on experience designing user-centric interfaces, improving accessibility, creating seamless web and mobile experiences, and mastering prototyping, design systems, and usability testing.",
     image: "/accolades/uiux_cert.jpg",
@@ -117,7 +125,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "THISUX"
   },
   {
-    id: 15,
+    id: 16,
     title: "IITM BS Degree - Foundation Certificate",
     description: "Completed foundation level of IITM BS Degree, building strong knowledge in Data Science core concepts and learning from top Indian professors.",
     image: "/accolades/foundation_cert.png",
@@ -125,7 +133,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "IIT Madras"
   },
   {
-    id: 16,
+    id: 17,
     title: "IITM BS Degree - Honors",
     description: "Earned top-rank badges for excellence in multiple courses and completing all assignments, reflecting dedication, consistency, and academic excellence.",
     image: "/accolades/iit_badges.png",
@@ -133,7 +141,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "IIT Madras"
   },
   {
-    id: 17,
+    id: 18,
     title: "NPTEL Design Thinking - Elite Silver Medal",
     description: "Completed NPTEL Design Thinking course, learning problem-solving frameworks and solution-generation techniques, achieving top 5% ranking with Elite Silver Medal.",
     image: "/accolades/dt_cert.png",
@@ -141,7 +149,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "NPTEL"
   },
   {
-    id: 18,
+    id: 19,
     title: "HackerRank Java Certificate",
     description: "Certified in Java programming by solving logical problems, demonstrating practical coding skills and problem-solving proficiency.",
     image: "/accolades/hackerrank_java.png",
@@ -149,7 +157,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "HackerRank"
   },
   {
-    id: 19,
+    id: 20,
     title: "TCS Virtual Experience Program",
     description: "Completed TCS virtual experience program, learning client engagement, requirement analysis, and effective problem-solving in a professional setting.",
     image: "/accolades/tcs_exp.png",
@@ -157,7 +165,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "TCS"
   },
   {
-    id: 20,
+    id: 21,
     title: "NPTEL Introduction to Research",
     description: "Completed NPTEL research course, learning formal research methodology, overcoming misconceptions, and gaining strong analytical and problem-solving research skills.",
     image: "/accolades/itr_cert.png",
@@ -165,7 +173,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "NPTEL"
   },
   {
-    id: 21,
+    id: 22,
     title: "HackerRank SQL Certificate",
     description: "Certified in SQL query writing and optimization, showcasing proficiency in database management and practical problem-solving skills.",
     image: "/accolades/hackerrank_sql.png",
@@ -173,7 +181,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "HackerRank"
   },
   {
-    id: 22,
+    id: 23,
     title: "NPTEL+ SQL Workshop",
     description: "Completed two-day SQL workshop on cricket data analysis using PostgreSQL, learning dataset extraction, data analysis, and hands-on database manipulation.",
     image: "/accolades/sql_workshop.png",
@@ -181,7 +189,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "NPTEL+"
   },
   {
-    id: 23,
+    id: 24,
     title: "Paradox Margazhi - Python Coding Challenge",
     description: "Participated in Python coding competition, solving 4 of 5 problems, enhancing coding proficiency and collaborating with peers in a competitive environment.",
     image: "/accolades/python_margazhi.png",
