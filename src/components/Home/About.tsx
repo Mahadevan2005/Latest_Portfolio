@@ -29,7 +29,7 @@ const About = () => {
       className="section bg-gradient-to-b from-amber-50 via-white to-amber-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"
     >
       <div className="container-custom lg:text-left">
-        <SectionHeading title="About Me :)" />
+        <SectionHeading title="About Me" />
 
         {/* Intro Text */}
         <div className="max-w-4xl mx-auto space-y-6">
