@@ -16,15 +16,15 @@ import {
 import { ExternalLink } from "lucide-react";
 
 const highlights = [
-  { icon: <FaCode />, title: "1425+ Problems Solved", subtitle: "Across LeetCode, CodeChef, and other platforms." },
+  { icon: <FaCode />, title: "1435+ Problems Solved", subtitle: "Across LeetCode, CodeChef, and other platforms." },
   { icon: <FaBrain />, title: "Strong DSA Foundations", subtitle: "Mastering algorithms, data structures, and patterns." },
   { icon: <FaMedal />, title: "Flipkart Grid 7.0 Semifinalist", subtitle: "Reached semifinals out of 1.6 Lakh+ participants." },
   { icon: <FaTrophy />, title: "Max : 1451 Leetcode Rating", subtitle: "Best Contest Rank: 1772 / 25,000+" },
   { icon: <FaGithub />, title: "Active GitHub Contributor", subtitle: "Consistent commits, pull requests, and open-source projects." },
   { icon: <FaJava />, title: "Java ⭐⭐⭐⭐⭐", subtitle: "Awarded by HackerRank." },
   { icon: <FaPython />, title: "Python ⭐⭐⭐⭐⭐", subtitle: "Awarded by HackerRank." },
-  { icon: <FaAward />, title: "20+ Awards & Badges", subtitle: "Including LeetCode 100 Days, CodeStudio Specialist Badges." },
-  { icon: <FaCodeBranch />, title: "835+ Commits", subtitle: "Consistent coding streak & contributions." },
+  { icon: <FaAward />, title: "25+ Awards & Badges", subtitle: "Including LeetCode 100 Days, CodeStudio Specialist Badges." },
+  { icon: <FaCodeBranch />, title: "850+ Commits", subtitle: "Consistent coding streak & contributions." },
   { icon: <FaLayerGroup />, title: "Algorithmic Thinking", subtitle: "Breaking down complex problems into efficient solutions." },
 ];
 
@@ -66,7 +66,7 @@ const Codolio = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-16 text-2xl font-bold text-gray-800 dark:text-gray-200 text-center"
         >
-          Some Key Highlights of My Journey 🚀
+          ※ Some Key Highlights of My Journey ※
         </motion.h3>
 
         {/* Highlights */}

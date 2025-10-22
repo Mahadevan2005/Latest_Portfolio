@@ -71,7 +71,7 @@ const Experience = () => {
         </motion.div>
 
         {/* Experience Cards */}
-        <div className="mt-12 space-y-12">
+        <div className="mt-12 space-y-6">
           {experienceData.map((exp, idx) => (
             <ExperienceCard key={exp.id} experience={exp} index={idx} />
           ))}
