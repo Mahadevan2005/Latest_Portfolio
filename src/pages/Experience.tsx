@@ -56,7 +56,7 @@ const Experience = () => {
             rounded-full filter blur-3xl opacity-20 top-1/3 left-1/2 -translate-x-1/2"></div>
         </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0">
         {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
