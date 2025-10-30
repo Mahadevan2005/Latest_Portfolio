@@ -6,7 +6,7 @@ interface HelloAnimationProps {
 }
 
 const greetings: string[] = [
-  "• Hello", "• Hola", "• Bonjour", "• Ciao", "• ನಮಸ್ಕಾರ", "• नमस्ते", "• வணக்கம்"
+  "• Hello", "• Hola", "• Bonjour", "• സ്വാഗതം", "• ನಮಸ್ಕಾರ", "• नमस्ते", "• வணக்கம்"
 ];
 
 const HelloAnimation: React.FC<HelloAnimationProps> = ({ onFinish }) => {
