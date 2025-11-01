@@ -210,7 +210,7 @@ const Accolades = () => {
         >
           <SectionHeading 
             title="Accolades" 
-            subtitle="A curated collection of my certifications, awards, and accomplishments" 
+            subtitle="A curated collection of my certifications, awards, and accomplishments." 
           />
         </motion.div>
 
