@@ -16,7 +16,7 @@ import {
 import { ExternalLink } from "lucide-react";
 
 const highlights = [
-  { icon: <FaCode />, title: "1500+ Problems Solved", subtitle: "Across LeetCode, CodeChef, and other platforms." },
+  { icon: <FaCode />, title: "1510+ Problems Solved", subtitle: "Across LeetCode, CodeChef, and other platforms." },
   { icon: <FaBrain />, title: "Strong DSA Foundations", subtitle: "Mastering algorithms, data structures, and patterns." },
   { icon: <FaMedal />, title: "Flipkart Grid 7.0 Semifinalist", subtitle: "Reached semifinals out of 1.6 Lakh+ participants." },
   { icon: <FaTrophy />, title: "Max : 1451 Leetcode Rating", subtitle: "Best Contest Rank: 1772 / 25,000+" },
