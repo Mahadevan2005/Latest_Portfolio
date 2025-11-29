@@ -32,6 +32,8 @@ const thoughts = {
         <br>
         <p>There were days when opening my inbox felt like picking up emotional weight. A small part of me wondered if I was not good enough, or if all the learning, projects, sleepless nights, and efforts were truly worth anything. </p>
         <br>
+        <img src="public\thoughts\miracle_thoughts_img1.png" alt="Rejection Email" class="mx-auto my-4 rounded shadow-lg" />
+        <br>
         <p>During this phase, only three people truly knew what I was going through. They saw the versions of me that others didn’t - the frustration, the silence, the self-doubt. And yet, they supported me without question. Their belief in me, especially when my own belief was shaking, kept me grounded. Their presence made the journey bearable.</p>
         <br>
         <p>But here’s the part I’m grateful for: even on the difficult days, something inside me refused to stop. I kept learning. I kept improving. I kept building. And most importantly, I kept believing - not blindly, but with the quiet conviction that <strong>growth always meets effort at some point.</strong></p>
