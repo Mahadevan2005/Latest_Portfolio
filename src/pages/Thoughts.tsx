@@ -11,9 +11,9 @@ const thoughts: ThoughtProps[] = [
     color: "bg-yellow-300",
   },
   {
-    id: "consistency",
-    category: "consistency",
-    text: "Learning Never Stops - Beyond Academics!",
+    id: "miracles",
+    category: "miracles",
+    text: "Miracles Do Happen – Trust the Timing!",
     date: "Nov 29, 2025",
     color: "bg-blue-300",
   },

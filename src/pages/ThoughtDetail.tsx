@@ -22,6 +22,28 @@ const thoughts = {
     color: "bg-yellow-300",
     read_time: "3 min read",
   },
+
+  miracles: {
+    title: "Miracles Do Happen – A Journey Through Rejection",
+    text: `
+        <p>Life has a way of testing you, especially when you’re trying your best and things still don’t fall into place. For a long time, I went through rejection after rejection — each one a small hit to my confidence, each one making me wonder if I should slow down or give up.</p>
+        <br>
+        <p>But somewhere in the middle of all that doubt, I kept going. I kept learning, improving, applying, and believing that <strong>one day, something would shift</strong>. I didn’t know when. I didn’t know how. But I believed.</p>
+        <br>
+        <p>And it did. I’m genuinely humbled and grateful to say that I finally received an opportunity that means a lot to me — an internship at <strong>HackerRank</strong>. After so many rejections, this moment feels nothing short of a miracle.</p>
+        <br>
+        <p>This journey taught me an important truth: <strong>rejections don’t define your worth — your perseverance does.</strong> Every “no” was shaping me, preparing me, strengthening me for the right “yes.” Sometimes, miracles aren’t sudden. They grow quietly inside every setback, every attempt, every moment you choose not to quit.</p>
+        <br>
+        <p>If you’re going through constant rejection, please remember this — your breakthrough might be closer than you think. Stay patient. Stay persistent. Believe in the version of yourself that keeps trying even when it’s hard.</p>
+        <br>
+        <p>Because miracles do happen. They just arrive when you’re ready for them.</p>
+        <br>
+        <p>With gratitude,<br>Mahadevan M</p>
+    `,
+    date: "Nov 29, 2025",
+    color: "bg-blue-300",
+    read_time: "3 min read",
+  },
 };
 
 const ThoughtDetail = () => {
