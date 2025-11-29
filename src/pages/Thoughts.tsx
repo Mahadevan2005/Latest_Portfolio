@@ -10,6 +10,13 @@ const thoughts: ThoughtProps[] = [
     date: "Oct 6, 2025",
     color: "bg-yellow-300",
   },
+  {
+    id: "consistency",
+    category: "consistency",
+    text: "Learning Never Stops - Beyond Academics!",
+    date: "Nov 29, 2025",
+    color: "bg-blue-300",
+  },
 ];
 
 const Thoughts = () => {
