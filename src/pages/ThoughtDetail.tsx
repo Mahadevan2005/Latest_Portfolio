@@ -26,13 +26,13 @@ const thoughts = {
   miracles: {
     title: "Miracles Do Happen - Trust the Timing!",
     text: `
-        <p>Life has an interesting way of teaching us lessons. Sometimes it does so gently, and sometimes it tests us to the point where we begin questioning everything — our efforts, our dreams, and even ourselves. My journey over the past few months has been exactly that: a long stretch of hope, disappointment, patience, and silent faith.</p>
+        <p>Life has an interesting way of teaching us lessons. Sometimes it does so gently, and sometimes it tests us to the point where we begin questioning everything - our efforts, our dreams, and even ourselves. My journey over the past few months has been exactly that: a long stretch of hope, disappointment, patience, and silent faith.</p>
         <br>
         <p>I went through a phase where rejections became a routine. Every application I sent out carried a spark of hope, yet many replies came back with the same familiar line: <em>“We regret to inform you…”</em> At first, I told myself that rejection was normal. But as they kept coming, one after another, they quietly started affecting me.</p>
         <br>
         <p>There were days when opening my inbox felt like picking up emotional weight. A small part of me wondered if I was not good enough, or if all the learning, projects, sleepless nights, and efforts were truly worth anything. </p>
         <br>
-        <img src="/thoughts/miracle_thoughts_img1.png" alt="Rejection Email" class="mx-auto my-4 rounded shadow-lg" />
+        <img src="/thoughts/miracle_thoughts_img1.png" alt="Rejection Email's" class="mx-auto my-4 rounded shadow-lg" />
         <br>
         <p>During this phase, only three people truly knew what I was going through. They saw the versions of me that others didn’t - the frustration, the silence, the self-doubt. And yet, they supported me without question. Their belief in me, especially when my own belief was shaking, kept me grounded. Their presence made the journey bearable.</p>
         <br>
@@ -44,13 +44,14 @@ const thoughts = {
         <br>
         <p>After months of waiting, applying, failing, and restarting, I got an opportunity that still feels unreal when I think about it - an internship at <strong>HackerRank</strong>. A place I admired. A platform I used to practice. A company I once thought was far beyond my reach.</p>
         <br>
+        <br>
+        <img src="/thoughts/miracle_thoughts_img2.png" alt="Selection Email" class="mx-auto my-4 rounded shadow-lg" />
+        <br>
         <p>When I received the email, I didn’t celebrate immediately. I just sat there for a moment, silent, letting everything sink in. All the rejections. All the doubts. All the nights spent learning something new just to feel a little better about myself. In that moment, it finally made sense.</p>
         <br>
         <p><strong>Miracles do happen - just not when we expect them.</strong> They happen when life has made sure you’re prepared. They happen when you’ve grown enough to deserve them. They happen when you’ve learned the lessons needed to receive them with gratitude rather than arrogance.</p>
         <br>
         <p>This experience taught me one powerful lesson: rejection is not a wall; it’s a mirror. It reflects what you need to work on, what you need to improve, and sometimes, it simply tells you that the timing isn’t right yet. But never does it tell you to stop trying.</p>
-        <br>
-        <p>If you’re reading this and going through a difficult phase — whether in your career, studies, or personal life — I want you to know this: your breakthrough is growing in the background. Just because you can’t see progress doesn’t mean it’s not happening.</p>
         <br>
         <p>Stay patient. Stay consistent. And most importantly, stay kind to yourself during the journey. Not every day will feel productive, and not every effort will be rewarded immediately. But everything you’re doing is taking you one step closer to the moment when your life will shift in ways you never imagined.</p>
         <br>
