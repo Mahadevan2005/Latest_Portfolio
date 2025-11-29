@@ -24,25 +24,41 @@ const thoughts = {
   },
 
   miracles: {
-    title: "Miracles Do Happen – A Journey Through Rejection",
+    title: "Miracles Do Happen - Trust the Timing!",
     text: `
-        <p>Life has a way of testing you, especially when you’re trying your best and things still don’t fall into place. For a long time, I went through rejection after rejection — each one a small hit to my confidence, each one making me wonder if I should slow down or give up.</p>
+        <p>Life has an interesting way of teaching us lessons. Sometimes it does so gently, and sometimes it tests us to the point where we begin questioning everything — our efforts, our dreams, and even ourselves. My journey over the past few months has been exactly that: a long stretch of hope, disappointment, patience, and silent faith.</p>
         <br>
-        <p>But somewhere in the middle of all that doubt, I kept going. I kept learning, improving, applying, and believing that <strong>one day, something would shift</strong>. I didn’t know when. I didn’t know how. But I believed.</p>
+        <p>I went through a phase where rejections became a routine. Every application I sent out carried a spark of hope, yet many replies came back with the same familiar line: <em>“We regret to inform you…”</em> At first, I told myself that rejection was normal. But as they kept coming, one after another, they quietly started affecting me.</p>
         <br>
-        <p>And it did. I’m genuinely humbled and grateful to say that I finally received an opportunity that means a lot to me — an internship at <strong>HackerRank</strong>. After so many rejections, this moment feels nothing short of a miracle.</p>
+        <p>There were days when opening my inbox felt like picking up emotional weight. A small part of me wondered if I was not good enough, or if all the learning, projects, sleepless nights, and efforts were truly worth anything. </p>
         <br>
-        <p>This journey taught me an important truth: <strong>rejections don’t define your worth — your perseverance does.</strong> Every “no” was shaping me, preparing me, strengthening me for the right “yes.” Sometimes, miracles aren’t sudden. They grow quietly inside every setback, every attempt, every moment you choose not to quit.</p>
+        <p>During this phase, only three people truly knew what I was going through. They saw the versions of me that others didn’t - the frustration, the silence, the self-doubt. And yet, they supported me without question. Their belief in me, especially when my own belief was shaking, kept me grounded. Their presence made the journey bearable.</p>
         <br>
-        <p>If you’re going through constant rejection, please remember this — your breakthrough might be closer than you think. Stay patient. Stay persistent. Believe in the version of yourself that keeps trying even when it’s hard.</p>
+        <p>But here’s the part I’m grateful for: even on the difficult days, something inside me refused to stop. I kept learning. I kept improving. I kept building. And most importantly, I kept believing - not blindly, but with the quiet conviction that <strong>growth always meets effort at some point.</strong></p>
         <br>
-        <p>Because miracles do happen. They just arrive when you’re ready for them.</p>
+        <p>People often assume miracles are sudden. But sometimes, miracles are the result of all the unnoticed work you’ve been doing in the dark. Every rejection was shaping me, correcting me, preparing me. I didn’t realize it then, but looking back, every “no” was pushing me toward the right “yes.”</p>
+        <br>
+        <p>And then, it happened.</p>
+        <br>
+        <p>After months of waiting, applying, failing, and restarting, I got an opportunity that still feels unreal when I think about it - an internship at <strong>HackerRank</strong>. A place I admired. A platform I used to practice. A company I once thought was far beyond my reach.</p>
+        <br>
+        <p>When I received the email, I didn’t celebrate immediately. I just sat there for a moment, silent, letting everything sink in. All the rejections. All the doubts. All the nights spent learning something new just to feel a little better about myself. In that moment, it finally made sense.</p>
+        <br>
+        <p><strong>Miracles do happen - just not when we expect them.</strong> They happen when life has made sure you’re prepared. They happen when you’ve grown enough to deserve them. They happen when you’ve learned the lessons needed to receive them with gratitude rather than arrogance.</p>
+        <br>
+        <p>This experience taught me one powerful lesson: rejection is not a wall; it’s a mirror. It reflects what you need to work on, what you need to improve, and sometimes, it simply tells you that the timing isn’t right yet. But never does it tell you to stop trying.</p>
+        <br>
+        <p>If you’re reading this and going through a difficult phase — whether in your career, studies, or personal life — I want you to know this: your breakthrough is growing in the background. Just because you can’t see progress doesn’t mean it’s not happening.</p>
+        <br>
+        <p>Stay patient. Stay consistent. And most importantly, stay kind to yourself during the journey. Not every day will feel productive, and not every effort will be rewarded immediately. But everything you’re doing is taking you one step closer to the moment when your life will shift in ways you never imagined.</p>
+        <br>
+        <p>Because miracles do happen. And often, they happen right after you’ve convinced yourself they won’t.</p>
         <br>
         <p>With gratitude,<br>Mahadevan M</p>
     `,
     date: "Nov 29, 2025",
-    color: "bg-blue-300",
-    read_time: "3 min read",
+    color: "bg-indigo-300",
+    read_time: "5 min read",
   },
 };
 

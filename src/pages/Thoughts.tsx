@@ -13,9 +13,9 @@ const thoughts: ThoughtProps[] = [
   {
     id: "miracles",
     category: "miracles",
-    text: "Miracles Do Happen – Trust the Timing!",
+    text: "Miracles Do Happen - Trust the Timing!",
     date: "Nov 29, 2025",
-    color: "bg-blue-300",
+    color: "bg-indigo-300",
   },
 ];
 
