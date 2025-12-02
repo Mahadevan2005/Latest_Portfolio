@@ -99,7 +99,7 @@ const EducationItem = ({ education, index }: EducationItemProps) => {
 
       {/* Institution & Location */}
       <div>
-        <p className="text-base sm:text-lg font-semibold text-warning">
+        <p className="text-base sm:text-lg font-semibold text-primary">
           {education.institution}
         </p>
         <p className="text-sm text-muted-foreground">{education.location}</p>
