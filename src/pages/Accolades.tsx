@@ -126,6 +126,14 @@ const ackoladesData: AckoladeProps[] = [
   },
   {
     id: 16,
+    title: "Applied Vibe Coding Workshop by (Prof. S. Anand)",
+    description: "Gained hands-on experience utilizing cutting-edge AI agentic models (GitHub Copilot, Codex, Replit, Jules AI, Claude) to build applications, mastering techniques that significantly accelerate development and testing workflows.",
+    image: "/accolades/vibe_coding.jpg",
+    date: "October 2024",
+    issuer: "CODE IIT Madras"
+  },
+  {
+    id: 16,
     title: "IITM BS Degree - Foundation Certificate",
     description: "Completed foundation level of IITM BS Degree, building strong knowledge in Data Science core concepts and learning from top Indian professors.",
     image: "/accolades/foundation_cert.png",
