@@ -128,12 +128,12 @@ const ackoladesData: AckoladeProps[] = [
     id: 16,
     title: "Applied Vibe Coding Workshop by (Prof. S. Anand)",
     description: "Gained hands-on experience utilizing cutting-edge AI agentic models (GitHub Copilot, Codex, Replit, Jules AI, Claude) to build applications, mastering techniques that significantly accelerate development and testing workflows.",
-    image: "/accolades/vibe_coding.jpg",
-    date: "October 2024",
+    image: "/accolades/vibe_coding.png",
+    date: "November 2025",
     issuer: "CODE IIT Madras"
   },
   {
-    id: 16,
+    id: 17,
     title: "IITM BS Degree - Foundation Certificate",
     description: "Completed foundation level of IITM BS Degree, building strong knowledge in Data Science core concepts and learning from top Indian professors.",
     image: "/accolades/foundation_cert.png",
@@ -141,7 +141,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "IIT Madras"
   },
   {
-    id: 17,
+    id: 18,
     title: "IITM BS Degree - Honors",
     description: "Earned top-rank badges for excellence in multiple courses and completing all assignments, reflecting dedication, consistency, and academic excellence.",
     image: "/accolades/iit_badges.png",
@@ -149,7 +149,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "IIT Madras"
   },
   {
-    id: 18,
+    id: 19,
     title: "NPTEL Design Thinking - Elite Silver Medal",
     description: "Completed NPTEL Design Thinking course, learning problem-solving frameworks and solution-generation techniques, achieving top 5% ranking with Elite Silver Medal.",
     image: "/accolades/dt_cert.png",
@@ -157,7 +157,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "NPTEL"
   },
   {
-    id: 19,
+    id: 20,
     title: "HackerRank Java Certificate",
     description: "Certified in Java programming by solving logical problems, demonstrating practical coding skills and problem-solving proficiency.",
     image: "/accolades/hackerrank_java.png",
@@ -165,7 +165,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "HackerRank"
   },
   {
-    id: 20,
+    id: 21,
     title: "TCS Virtual Experience Program",
     description: "Completed TCS virtual experience program, learning client engagement, requirement analysis, and effective problem-solving in a professional setting.",
     image: "/accolades/tcs_exp.png",
@@ -173,7 +173,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "TCS"
   },
   {
-    id: 21,
+    id: 22,
     title: "NPTEL Introduction to Research",
     description: "Completed NPTEL research course, learning formal research methodology, overcoming misconceptions, and gaining strong analytical and problem-solving research skills.",
     image: "/accolades/itr_cert.png",
@@ -181,7 +181,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "NPTEL"
   },
   {
-    id: 22,
+    id: 23,
     title: "HackerRank SQL Certificate",
     description: "Certified in SQL query writing and optimization, showcasing proficiency in database management and practical problem-solving skills.",
     image: "/accolades/hackerrank_sql.png",
@@ -189,7 +189,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "HackerRank"
   },
   {
-    id: 23,
+    id: 24,
     title: "NPTEL+ SQL Workshop",
     description: "Completed two-day SQL workshop on cricket data analysis using PostgreSQL, learning dataset extraction, data analysis, and hands-on database manipulation.",
     image: "/accolades/sql_workshop.png",
@@ -197,7 +197,7 @@ const ackoladesData: AckoladeProps[] = [
     issuer: "NPTEL+"
   },
   {
-    id: 24,
+    id: 25,
     title: "Paradox Margazhi - Python Coding Challenge",
     description: "Participated in Python coding competition, solving 4 of 5 problems, enhancing coding proficiency and collaborating with peers in a competitive environment.",
     image: "/accolades/python_margazhi.png",
