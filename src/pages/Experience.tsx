@@ -10,8 +10,8 @@ const experienceData: ExperienceProps[] = [
     logo: "/experience/iitm_bs_logo.png",
     duration: "September 2025 - Present",
     description: [
-      "Built a fee reconciliation application for the Accounts team using Python, Flask, and AdminLTE, enabling accurate handling and tallying of large-scale fund transactions across centers.",
-      "Led the complete development lifecycle - requirement gathering, SRS documentation, backend architecture, feature implementation, testing, and demos - completing ~60% of the system and establishing a scalable foundation for future development.",
+      "Built and scaled a payments reconciliation system, migrating from Flask to Django to automate high-volume transaction validation and deliver accurate tracking of large-scale fund transactions.",
+      "Led the complete development lifecycle - requirement gathering, SRS documentation, backend architecture, feature implementation, testing, and demos - boosting speed by 40% and cutting errors by 50%.",
       "Developed a Python-based QC automation script to process and validate 60K+ data rows, automating manual checks and cutting verification time by 70%, ensuring accurate, reliable reports across centers.",
       "Resolved critical issues in payment workflows, course enrollment, and user dashboards, improving system stability and enhancing the experience for 50+ students."
     ],
