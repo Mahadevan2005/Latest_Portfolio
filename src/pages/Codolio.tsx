@@ -16,15 +16,15 @@ import {
 import { ExternalLink } from "lucide-react";
 
 const highlights = [
-  { icon: <FaCode />, title: "1540+ Problems Solved", subtitle: "Across LeetCode, CodeChef, and other platforms." },
+  { icon: <FaCode />, title: "1545+ Problems Solved", subtitle: "Across LeetCode, CodeChef, and other platforms." },
   { icon: <FaBrain />, title: "Strong DSA Foundations", subtitle: "Mastering algorithms, data structures, and patterns." },
   { icon: <FaMedal />, title: "Flipkart Grid 7.0 Semifinalist", subtitle: "Reached semifinals out of 1.6 Lakh+ participants." },
   { icon: <FaTrophy />, title: "Max : 1451 Leetcode Rating", subtitle: "Best Contest Rank: 1772 / 25,000+" },
   { icon: <FaGithub />, title: "Active GitHub Contributor", subtitle: "Consistent commits, pull requests, and open-source projects." },
   { icon: <FaJava />, title: "Java ⭐⭐⭐⭐⭐", subtitle: "Awarded by HackerRank." },
   { icon: <FaPython />, title: "Python ⭐⭐⭐⭐⭐", subtitle: "Awarded by HackerRank." },
-  { icon: <FaAward />, title: "30 Awards & Badges", subtitle: "Including LeetCode 100 Days, CodeStudio Specialist Badges." },
-  { icon: <FaCodeBranch />, title: "915+ Contributions", subtitle: "Consistent coding streak & contributions." },
+  { icon: <FaAward />, title: "30 Awards & Badges", subtitle: "Including LeetCode 365 Days, CodeStudio Specialist Badges." },
+  { icon: <FaCodeBranch />, title: "940+ Contributions", subtitle: "Consistent coding streak & contributions." },
   { icon: <FaLayerGroup />, title: "Algorithmic Thinking", subtitle: "Breaking down complex problems into efficient solutions." },
 ];
 
