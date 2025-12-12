@@ -11,6 +11,7 @@ const experienceData: ExperienceProps[] = [
     duration: "September 2025 - Present",
     description: [
       "Built and scaled a payments reconciliation system, migrating from Flask to Django to automate high-volume transaction validation and deliver accurate tracking of large-scale fund transactions.",
+      "Integrated Google OAuth-based login, improving authentication reliability and reducing friction for users logging in across devices.",
       "Led the complete development lifecycle - requirement gathering, SRS documentation, backend architecture, feature implementation, testing, and demos - boosting speed by 40% and cutting errors by 50%.",
       "Developed a Python-based QC automation script to process and validate 60K+ data rows, automating manual checks and cutting verification time by 70%, ensuring accurate, reliable reports across centers.",
       "Resolved critical issues in payment workflows, course enrollment, and user dashboards, improving system stability and enhancing the experience for 50+ students."
