@@ -167,7 +167,7 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
             className="border-t border-gray-200 dark:border-gray-800 pt-4"
           >
             <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-              <span className="w-8 h-0.5 bg-gradient-to-r from-cyan-500 to-amber-500" />
+              <span className="w-6 h-0.5 bg-gradient-to-r from-cyan-500 to-amber-500" />
               Skills Leveled Up
             </h4>
             <div className="flex flex-wrap gap-2">

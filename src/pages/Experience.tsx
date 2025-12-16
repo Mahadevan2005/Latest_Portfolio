@@ -22,7 +22,7 @@ const experienceData: ExperienceProps[] = [
   },
   {
     id: 2,
-    company: "Centre for Outreach and Digital Education (CODE / NPTEL)",
+    company: "Centre for Outreach and Digital Education (CODE)",
     role: "Junior Developer Intern",
     logo: "/experience/code_logo.jpeg",
     duration: "February 2025 - April 2025",
