@@ -17,7 +17,7 @@ const experienceData: ExperienceProps[] = [
       "Resolved critical issues in payment workflows, course enrollment, and user dashboards, improving system stability and enhancing the experience for 50+ students."
     ],
     website: "https://study.iitm.ac.in/ds/",
-    skills: ["Django", "Python", "Flask", "API Development", "Database Design"],
+    skills: ["Django", "Python", "Flask", "API Development", "Database Design", "OAuth Integration"],
     metrics: { efficiency: "+40%", accuracy: "+50%", scale: "60K+" }
   },
   {
