@@ -29,21 +29,10 @@ const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.7, delay: index * 0.15 }}
-      className="group relative w-full sm:max-w-5xl mx-auto"
+      className="group relative w-full sm:max-w-4xl mx-auto"
     >
-      {/* Chapter Number Badge */}
-      {/* <motion.div
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-        className="absolute -left-4 sm:-left-6 top-8 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-br from-cyan-500 to-amber-500 dark:from-cyan-600 dark:to-amber-600 flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg z-10"
-      >
-        {index + 1}
-      </motion.div> */}
-
       <motion.div
-        className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-3xl border-2 border-gray-200 dark:border-gray-800 shadow-2xl hover:shadow-3xl transition-all duration-500 p-6 sm:p-8 ml-6 sm:ml-8 cursor-pointer overflow-hidden"
+        className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-3xl border-2 border-gray-200 dark:border-gray-800 shadow-2xl hover:shadow-3xl transition-all duration-500 p-6 sm:p-8 cursor-pointer overflow-hidden"
         whileHover={{ scale: 1.02, borderColor: "rgba(6, 182, 212, 0.5)" }}
         onClick={() => setIsExpanded(!isExpanded)}
       >
