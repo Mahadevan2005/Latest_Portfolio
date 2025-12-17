@@ -4,7 +4,6 @@ const skillsLogos = [
   // 🟢 Programming Languages
   { name: "Java", src: "/skills/java.svg" },
   { name: "Python", src: "/skills/python.svg" },
-  { name: "TypeScript", src: "/skills/typescript.svg" },
   { name: "JavaScript", src: "/skills/js.svg" },
   { name: "Bash", src: "/skills/bash.svg" },
 
@@ -17,7 +16,6 @@ const skillsLogos = [
 
   // ⚙️ Backend / Frameworks
   { name: "Django", src: "/skills/django.svg" },
-  { name: "FastAPI", src: "/skills/fastapi.svg" },
   { name: "SpringBoot", src: "/skills/springboot.svg" },
 
   // 🗄 Databases & Caching
