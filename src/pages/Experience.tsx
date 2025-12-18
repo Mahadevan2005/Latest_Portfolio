@@ -108,10 +108,10 @@ const Experience = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
           >
-            Experience isn't time spent.
+            Growth isn’t time spent.
             <br />
             <span className="bg-gradient-to-r from-cyan-600 via-amber-600 to-cyan-600 dark:from-cyan-400 dark:via-amber-400 dark:to-cyan-400 bg-clip-text text-transparent">
-              It's impact delivered.
+              It’s learning by building.
             </span>
           </motion.h1>
 
@@ -122,7 +122,7 @@ const Experience = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Building systems that scale, solving problems that matter, and leveling up with every mission.
+            Actively involved in designing, building, and maintaining systems with an emphasis on clarity, performance, and long-term reliability.
           </motion.p>
 
           {/* Stats Row */}
