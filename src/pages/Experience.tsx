@@ -7,10 +7,27 @@ import ExperienceDetail from "../components/Experience/ExperienceDetail";
 const experienceData: ExperienceProps[] = [
   {
     id: 1,
+    company: "Skyflo.ai",
+    role: "Open Source Developer",
+    logo: "/experience/skyflo_ai_logo.jpg",
+    duration: "Dec 2025 - Dec 2025",
+    description: [
+      "Built TPS (Tokens Per Second) metric with server-measured timing, eliminating network latency from performance calculations.",
+      "Architected server-side duration measurement by extending SSE (Server-Sent Events) to emit high-precision timestamps from the Engine.",
+      "Implemented aggregate TPS calculations across multi-turn conversations and bulk approval workflows.",
+      "Added real-time throttling mechanism (200ms intervals) to balance live feedback with UI rendering performance and ensured backwards compatibility for existing API consumers"
+    ],
+    website: "https://skyflo.ai/",
+    skills: ["React.js", "FastAPI", "TypeScript", "API Development", "Server-Sent Events (SSE)", "Code Reviews"],
+    metrics: { IssuesClosed: "#72, #75", LinesOfCode: "250+", ReviewCycles: "15+" },
+    location: "Remote - Chennai, TN, India"
+  },
+  {
+    id: 2,
     company: "IIT Madras (BS in Data Science Programme)",
     role: "Software Developer Intern",
     logo: "/experience/iitm_bs_logo.png",
-    duration: "September 2025 - Present",
+    duration: "Sept 2025 - Dec 2025",
     description: [
       "Built and scaled a payments reconciliation system, migrating from Flask to Django to automate high-volume transaction validation and deliver accurate tracking of large-scale fund transactions.",
       "Led the complete development lifecycle - requirement gathering, SRS documentation, backend architecture, feature implementation, testing, and demos - boosting speed by 40% and cutting errors by 50%.",
@@ -19,14 +36,15 @@ const experienceData: ExperienceProps[] = [
     ],
     website: "https://study.iitm.ac.in/ds/",
     skills: ["Django", "Python", "Flask", "API Development", "Database Design", "OAuth Integration"],
-    metrics: { efficiency: "+40%", accuracy: "+50%", scale: "60K+" }
+    metrics: { efficiency: "+40%", accuracy: "+50%", scale: "60K+" },
+    location: "Onsite - Chennai, TN, India"
   },
   {
-    id: 2,
+    id: 3,
     company: "Centre for Outreach and Digital Education (CODE)",
     role: "Junior Developer Intern",
     logo: "/experience/code_logo.jpeg",
-    duration: "February 2025 - April 2025",
+    duration: "Feb 2025 - Apr 2025",
     description: [
       "Designed and implemented an automated tool from scratch for NPTEL to compile lecture PDFs into structured E-Books using Python and Flask.",
       "Reduced processing time from 3 hours to 5 minutes (90% time savings)",
@@ -35,7 +53,8 @@ const experienceData: ExperienceProps[] = [
     ],
     website: "https://code.iitm.ac.in/",
     skills: ["Python", "Flask", "Git", "Automation", "Code Review"],
-    metrics: { timeSaved: "90%", conflicts: "-40%", quality: "High" }
+    metrics: { timeSaved: "90%", conflicts: "-40%", processAutomated: "100%" },
+    location: "Onsite - Chennai, TN, India",
   },
 ];
 
@@ -107,7 +126,7 @@ const Experience = () => {
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-amber-200/10 to-pink-200/10 dark:from-amber-500/5 dark:to-pink-500/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-purple-200/10 to-blue-200/10 dark:from-purple-500/5 dark:to-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-14">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -144,8 +163,7 @@ const Experience = () => {
             transition={{ delay: 0.3 }}
             className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto px-4"
           >
-            Building impactful solutions through hands-on development. 
-            Click on a role to explore detailed contributions and achievements.
+            Actively involved in designing, building, and maintaining systems with an emphasis on clarity, performance, and long-term reliability.
           </motion.p>
         </motion.div>
 
@@ -165,9 +183,6 @@ const Experience = () => {
                 Roles
               </span>
               <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700" />
-              <span className="text-xs text-gray-600 dark:text-gray-400 font-medium px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-800">
-                {experienceData.length}
-              </span>
             </motion.div>
 
             {experienceData.map((exp, idx) => (
@@ -192,7 +207,7 @@ const Experience = () => {
               </div>
               <div>
                 <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1">
-                  Pro Tip
+                  Tip
                 </h4>
                 <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
                   Click on different roles to see detailed breakdowns of contributions, 

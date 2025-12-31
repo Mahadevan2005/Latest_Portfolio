@@ -7,7 +7,7 @@ import {
   Calendar,
   Building2,
   CheckCircle2,
-  Award
+  MapPin
 } from "lucide-react";
 import type { ExperienceProps } from "./ExperienceCard";
 
@@ -114,8 +114,8 @@ const ExperienceDetail = ({ experience, onClose }: ExperienceDetailProps) => {
                 
                 {experience.description && (
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-medium bg-primary/10 dark:bg-amber-200/10 text-primary dark:text-amber-200 border border-primary/20 dark:border-amber-200/20">
-                    <Award className="w-4 h-4" />
-                    {experience.description.length} achievements
+                    <MapPin className="w-4 h-4" />
+                    {experience.location}
                   </span>
                 )}
               </div>
@@ -192,9 +192,7 @@ const ExperienceDetail = ({ experience, onClose }: ExperienceDetailProps) => {
                     whileHover={{ x: 4 }}
                   >
                     {/* Number badge */}
-                    <div className="absolute -left-2 top-3.5 sm:top-4 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-primary/20 dark:bg-amber-200/20 text-primary dark:text-amber-200 flex items-center justify-center text-xs font-bold border-2 border-white dark:border-gray-900">
-                      {index + 1}
-                    </div>
+                    
                     
                     <div className="flex items-start gap-2.5 sm:gap-3 pl-6 sm:pl-8">
                       <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-amber-200 flex-shrink-0 mt-0.5" />
