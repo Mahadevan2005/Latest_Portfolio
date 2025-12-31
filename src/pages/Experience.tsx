@@ -1,7 +1,8 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Briefcase, Sparkles, LayoutGrid } from "lucide-react";
 import ExperienceCard, { ExperienceProps } from "../components/Experience/ExperienceCard";
-import { motion } from "framer-motion";
-import { Zap } from "lucide-react";
-// import { Code2, TrendingUp } from "lucide-react";
+import ExperienceDetail from "../components/Experience/ExperienceDetail";
 
 const experienceData: ExperienceProps[] = [
   {
@@ -39,128 +40,292 @@ const experienceData: ExperienceProps[] = [
 ];
 
 const Experience = () => {
-  return (
-    <section className="min-h-screen bg-gradient-to-b from-white via-amber-50/30 to-cyan-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 overflow-hidden relative">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Floating Grid Pattern */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
-        </div>
+  const [selectedExperience, setSelectedExperience] = useState<ExperienceProps | null>(null);
+  const [isMobileDetailOpen, setIsMobileDetailOpen] = useState(false);
 
-        {/* Hero Section */}
+  // Prevent body scroll when modal is open on mobile - improved method
+  useEffect(() => {
+    if (isMobileDetailOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Restore scroll position
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+    
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+    };
+  }, [isMobileDetailOpen]);
+
+  // Auto-select first experience on desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && !selectedExperience) {
+        setSelectedExperience(experienceData[0]);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [selectedExperience]);
+
+  const handleCardClick = (exp: ExperienceProps) => {
+    setSelectedExperience(exp);
+    // On mobile, open the modal
+    if (window.innerWidth < 1024) {
+      setIsMobileDetailOpen(true);
+    }
+  };
+
+  const handleClose = () => {
+    setIsMobileDetailOpen(false);
+  };
+
+  return (
+    <>
+      <section className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-amber-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 relative overflow-hidden isolate">
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px]" />
+        
+        {/* Gradient orbs matching your theme */}
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-amber-200/10 to-pink-200/10 dark:from-amber-500/5 dark:to-pink-500/5 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-purple-200/10 to-blue-200/10 dark:from-purple-500/5 dark:to-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative pt-16 pb-6 sm:pt-20 sm:pb-12 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
         >
           {/* Badge */}
-          <div className="absolute inset-x-0 top-6 md:top-8 lg:top-10 flex justify-center z-50">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full
-                  bg-amber-100/95 dark:bg-amber-900/40
-                  border border-amber-300 dark:border-amber-700 shadow-xl"
-              >
-                <Zap className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                <span className="text-sm font-medium text-amber-900 dark:text-amber-200">
-                  Career Journey
-                </span>
-              </motion.div>
-            </div>
-
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight"
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm mb-4 sm:mb-6"
           >
-            Growth isn’t time spent.
-            <br />
-            <span className="bg-gradient-to-r from-cyan-600 via-amber-600 to-cyan-600 dark:from-cyan-400 dark:via-amber-400 dark:to-cyan-400 bg-clip-text text-transparent">
-              It’s learning by building.
+            <Briefcase className="w-4 h-4 text-primary dark:text-amber-200" />
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Career Journey</span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-3 sm:mb-4 px-4"
+          >
+            Professional{" "}
+            <span className="bg-gradient-to-r from-primary via-pink-500 to-purple-500 dark:from-amber-200 dark:via-pink-300 dark:to-purple-400 bg-clip-text text-transparent">
+              Experience
             </span>
           </motion.h1>
 
-          {/* Subheading */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            transition={{ delay: 0.3 }}
+            className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto px-4"
           >
-            Actively involved in designing, building, and maintaining systems with an emphasis on clarity, performance, and long-term reliability.
+            Building impactful solutions through hands-on development. 
+            Click on a role to explore detailed contributions and achievements.
           </motion.p>
-
-          {/* Stats Row */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-6 sm:gap-12 mt-12"
-          >
-            <div className="flex flex-col items-center">
-              <div className="flex items-center gap-2 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-                <Code2 className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
-                2+
-              </div>
-              <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-1">
-                Organizations
-              </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="flex items-center gap-2 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-                <TrendingUp className="w-8 h-8 text-amber-600 dark:text-amber-400" />
-                90%
-              </div>
-              <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-1">
-                Time Optimized
-              </div>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="flex items-center gap-2 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-                <Zap className="w-8 h-8 text-cyan-600 dark:text-cyan-400" />
-                60K+
-              </div>
-              <div className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mt-1">
-                Records Processed
-              </div>
-            </div>
-          </motion.div> */}
         </motion.div>
 
-        {/* Journey Timeline Connector (moved inside cards wrapper so it spans only cards area) */}
+        {/* Main Content - Responsive Layout */}
+        <div className="grid lg:grid-cols-[1fr_1.5fr] xl:grid-cols-[450px_1fr] gap-6 lg:gap-8 items-start">
+          {/* Cards Column */}
+          <div className="space-y-4 lg:space-y-5">
+            {/* Section header for cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="hidden lg:flex items-center gap-2 px-2"
+            >
+              <LayoutGrid className="w-4 h-4 text-primary dark:text-amber-200" />
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
+                Roles
+              </span>
+              <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700" />
+              <span className="text-xs text-gray-600 dark:text-gray-400 font-medium px-2 py-0.5 rounded-full bg-gray-200 dark:bg-gray-800">
+                {experienceData.length}
+              </span>
+            </motion.div>
 
-        {/* Experience Cards - Chapters */}
-        <div className="pb-12 -mt-8 relative">
-          {/* Connector runs from top of first card to bottom of last card */}
-          <motion.div
-            initial={{ scaleY: 0 }}
-            whileInView={{ scaleY: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, delay: 0.15 }}
-            className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan-400 via-amber-400 to-transparent dark:from-cyan-600 dark:via-amber-600 origin-top z-0"
-          />
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-          </motion.div>
-
-          <div className="space-y-6 sm:space-y-10">
             {experienceData.map((exp, idx) => (
-              <ExperienceCard key={exp.id} experience={exp} index={idx} />
+              <ExperienceCard
+                key={exp.id}
+                experience={exp}
+                index={idx}
+                onClick={() => handleCardClick(exp)}
+                isActive={selectedExperience?.id === exp.id}
+              />
             ))}
+
+            {/* Pro tip - Desktop only */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="hidden lg:flex items-start gap-3 p-4 rounded-2xl bg-white/60 dark:bg-gray-800/60 backdrop-blur-md border border-gray-200 dark:border-gray-700 shadow-sm mt-6"
+            >
+              <div className="w-10 h-10 rounded-xl bg-primary/10 dark:bg-amber-200/10 flex items-center justify-center flex-shrink-0">
+                <Sparkles className="w-5 h-5 text-primary dark:text-amber-200" />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                  Pro Tip
+                </h4>
+                <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Click on different roles to see detailed breakdowns of contributions, 
+                  metrics, and technologies used in each position.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Detail Panel - Desktop Only */}
+          <div className="hidden lg:block">
+            <div className="sticky top-8">
+              <AnimatePresence mode="wait">
+                {selectedExperience && (
+                  <motion.div
+                    key={selectedExperience.id}
+                    initial={{ opacity: 0, scale: 0.98, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.98, y: 10 }}
+                    transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-lg"
+                    style={{ 
+                      height: 'calc(100vh - 12rem)',
+                      maxHeight: '800px',
+                      minHeight: '600px'
+                    }}
+                  >
+                    <ExperienceDetail 
+                      experience={selectedExperience} 
+                      onClose={() => {
+                        // On desktop, switch to next experience
+                        if (experienceData.length > 0) {
+                          const nextExp = experienceData.find(e => e.id !== selectedExperience.id) || experienceData[0];
+                          setSelectedExperience(nextExp);
+                        }
+                      }} 
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
+      {/* Mobile Detail Modal - Rendered outside section for proper layering */}
+      <AnimatePresence>
+        {isMobileDetailOpen && selectedExperience && (
+          <>
+            {/* Backdrop - z-[9998] to be above everything with full coverage */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={handleClose}
+              className="lg:hidden fixed inset-0 bg-black/90 dark:bg-black/95 backdrop-blur-md z-[9998]"
+              style={{ 
+                touchAction: 'none',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: '100%',
+                height: '100%'
+              }}
+            />
+            
+            {/* Modal - z-[9999] to be above backdrop and all content */}
+            <motion.div
+              initial={{ opacity: 0, y: "100%" }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: "100%" }}
+              transition={{ 
+                type: "spring", 
+                damping: 35, 
+                stiffness: 400,
+                mass: 0.8
+              }}
+              className="lg:hidden fixed inset-x-0 bottom-0 z-[9999] bg-white dark:bg-gray-900 rounded-t-3xl border-t-2 border-gray-300 dark:border-gray-700 shadow-2xl overflow-hidden"
+              style={{ 
+                height: '90vh',
+                maxHeight: '90vh',
+                touchAction: 'none',
+                position: 'fixed',
+                left: 0,
+                right: 0,
+                bottom: 0
+              }}
+            >
+              {/* Drag handle */}
+              <div 
+                className="flex-shrink-0 flex items-center justify-center py-3 cursor-grab active:cursor-grabbing bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-700"
+                onTouchStart={(e) => {
+                  const startY = e.touches[0].clientY;
+                  const startTime = Date.now();
+                  
+                  const onTouchMove = (e: TouchEvent) => {
+                    const currentY = e.touches[0].clientY;
+                    const diff = currentY - startY;
+                    const timeDiff = Date.now() - startTime;
+                    
+                    // Close if dragged down more than 100px or quick swipe down
+                    if (diff > 100 || (diff > 50 && timeDiff < 300)) {
+                      handleClose();
+                      document.removeEventListener('touchmove', onTouchMove);
+                    }
+                  };
+                  
+                  const onTouchEnd = () => {
+                    document.removeEventListener('touchmove', onTouchMove);
+                    document.removeEventListener('touchend', onTouchEnd);
+                  };
+                  
+                  document.addEventListener('touchmove', onTouchMove);
+                  document.addEventListener('touchend', onTouchEnd);
+                }}
+              >
+                <div className="w-12 h-1.5 rounded-full bg-gray-300 dark:bg-gray-700" />
+              </div>
+              
+              <div className="h-[calc(100%-52px)] overflow-hidden">
+                <ExperienceDetail 
+                  experience={selectedExperience} 
+                  onClose={handleClose} 
+                />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

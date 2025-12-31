@@ -1,7 +1,5 @@
-import { Briefcase, Calendar, TrendingUp, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import { HiExternalLink } from "react-icons/hi";
-import { useState } from "react";
+import { Building2, ChevronRight, Calendar, TrendingUp } from "lucide-react";
 
 export interface ExperienceProps {
   id: number;
@@ -18,182 +16,185 @@ export interface ExperienceProps {
 interface ExperienceCardProps {
   experience: ExperienceProps;
   index: number;
+  onClick: () => void;
+  isActive: boolean;
 }
 
-const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+const ExperienceCard = ({ experience, index, onClick, isActive }: ExperienceCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7, delay: index * 0.15 }}
-      className="group relative w-full sm:max-w-4xl mx-auto"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="group relative"
     >
-      <motion.div
-        className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-3xl border-2 border-gray-200 dark:border-gray-800 shadow-2xl hover:shadow-3xl transition-all duration-500 p-6 sm:p-8 cursor-pointer overflow-hidden"
-        whileHover={{ scale: 1.02, borderColor: "rgba(6, 182, 212, 0.5)" }}
-        onClick={() => setIsExpanded(!isExpanded)}
+      <motion.button
+        onClick={onClick}
+        className={`
+          relative w-full text-left p-5 sm:p-6 rounded-2xl sm:rounded-3xl
+          transition-all duration-500 cursor-pointer
+          bg-white/70 dark:bg-gray-800/70 backdrop-blur-md
+          border
+          ${isActive 
+            ? 'ring-2 ring-primary dark:ring-amber-200 shadow-lg border-primary dark:border-amber-200 bg-white/90 dark:bg-gray-800/90' 
+            : 'border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md hover:border-primary/30 dark:hover:border-amber-200/30 hover:-translate-y-1'
+          }
+        `}
+        whileTap={{ scale: 0.98 }}
       >
-      {/* Glowing Border Effect on Hover */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/0 via-amber-500/0 to-cyan-500/0 group-hover:from-cyan-500/20 group-hover:via-amber-500/20 group-hover:to-cyan-500/20 transition-all duration-500 blur-xl" />
-
-      <div className="relative flex flex-col gap-6">
-        {/* Header Section */}
-        <div className="flex flex-col sm:flex-row sm:items-start gap-5">
-          {/* Logo */}
+        {/* Gradient overlay on hover */}
+        <div className={`
+          absolute inset-0 rounded-2xl sm:rounded-3xl 
+          bg-gradient-to-br from-primary/10 via-transparent to-purple-500/10 
+          dark:from-amber-200/10 dark:via-transparent dark:to-purple-400/10
+          opacity-0 group-hover:opacity-100 transition-opacity duration-500
+          ${isActive ? 'opacity-100' : ''}
+        `} />
+        
+        {/* Glow effect */}
+        <div className={`
+          absolute -inset-px rounded-2xl sm:rounded-3xl 
+          bg-gradient-to-r from-primary/20 via-pink-500/10 to-purple-500/20 
+          dark:from-amber-200/20 dark:via-pink-300/10 dark:to-purple-400/20
+          opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10
+          ${isActive ? 'opacity-100' : ''}
+        `} />
+        
+        <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+          {/* Logo Container */}
           <motion.div
-            className="w-20 h-20 rounded-2xl overflow-hidden bg-gray-50 dark:bg-gray-800 flex items-center justify-center border-2 border-gray-200 dark:border-gray-700 flex-shrink-0 shadow-lg"
-            whileHover={{ rotate: [0, -5, 5, 0], scale: 1.05 }}
-            transition={{ duration: 0.5 }}
+            className={`
+              relative w-14 h-14 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden flex-shrink-0
+              bg-gray-100 dark:bg-gray-700 flex items-center justify-center
+              border transition-all duration-300
+              ${isActive 
+                ? 'border-primary dark:border-amber-200 shadow-lg' 
+                : 'border-gray-200 dark:border-gray-600 group-hover:border-primary/30 dark:group-hover:border-amber-200/30 group-hover:shadow-md'
+              }
+            `}
+            whileHover={{ rotate: [0, -3, 3, 0] }}
+            transition={{ duration: 0.4 }}
           >
-            <img
-              src={experience.logo}
-              alt={`${experience.company} logo`}
-              className="w-full h-full object-contain p-2"
-            />
+            {experience.logo ? (
+              <img
+                src={experience.logo}
+                alt={`${experience.company} logo`}
+                className="w-full h-full object-contain p-2"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const sibling = e.currentTarget.nextElementSibling;
+                  if (sibling) sibling.classList.remove('hidden');
+                }}
+              />
+            ) : null}
+            <Building2 className={`w-7 h-7 sm:w-8 sm:h-8 text-gray-500 dark:text-gray-400 ${experience.logo ? 'hidden' : ''}`} />
+            
+            {/* Active indicator pulse */}
+            {isActive && (
+              <motion.div
+                className="absolute inset-0 border-2 border-primary dark:border-amber-200 rounded-xl sm:rounded-2xl"
+                initial={false}
+                animate={{ scale: [1, 1.05, 1], opacity: [1, 0.8, 1] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              />
+            )}
           </motion.div>
 
-          {/* Header Content */}
-          <div className="flex-1 flex flex-col">
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-3">
-              <div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+          {/* Content */}
+          <div className="flex-1 min-w-0 w-full sm:w-auto">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0 flex-1">
+                <h3 className="font-display font-semibold text-base sm:text-lg text-gray-900 dark:text-gray-100 group-hover:text-primary dark:group-hover:text-amber-200 transition-colors duration-300 line-clamp-2 sm:line-clamp-1">
                   {experience.role}
-                  <Sparkles className="w-5 h-5 text-amber-500 dark:text-amber-400" />
                 </h3>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <Briefcase className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-gray-700 dark:text-gray-300 font-medium text-base sm:text-lg">
-                    {experience.company}
-                  </span>
-                  {experience.website && (
-                    <a
-                      href={experience.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors"
-                      aria-label={`Visit ${experience.company} website`}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <HiExternalLink size={18} />
-                    </a>
-                  )}
-                </div>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 line-clamp-1 mt-1">
+                  {experience.company}
+                </p>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 border border-amber-300 dark:border-amber-700 flex-shrink-0">
-                <Calendar className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-                <span className="text-sm font-medium text-amber-900 dark:text-amber-200 whitespace-nowrap">
-                  {experience.duration}
-                </span>
-              </div>
+              
+              {/* Arrow indicator - Desktop */}
+              <motion.div
+                className={`
+                  hidden sm:flex flex-shrink-0 w-8 h-8 rounded-full items-center justify-center
+                  transition-all duration-300
+                  ${isActive 
+                    ? 'bg-primary dark:bg-amber-200 text-white dark:text-gray-900' 
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 group-hover:bg-primary dark:group-hover:bg-amber-200 group-hover:text-white dark:group-hover:text-gray-900'
+                  }
+                `}
+                animate={{ x: isActive ? 2 : 0 }}
+                whileHover={{ x: 3 }}
+              >
+                <ChevronRight className="w-4 h-4" />
+              </motion.div>
             </div>
 
-            {/* Metrics Display */}
-            {experience.metrics && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="flex flex-wrap gap-3 mb-4"
+            {/* Duration & Skills Row */}
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium bg-primary/10 dark:bg-amber-200/10 text-primary dark:text-amber-200 border border-primary/20 dark:border-amber-200/20">
+                <Calendar className="w-3 h-3" />
+                {experience.duration}
+              </span>
+              
+              {/* Metrics preview - Mobile when active */}
+              {experience.metrics && Object.keys(experience.metrics).length > 0 && (
+                <span className={`
+                  inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium 
+                  bg-purple-500/10 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/20 dark:border-purple-400/20
+                  ${isActive ? 'sm:hidden' : 'hidden'}
+                `}>
+                  <TrendingUp className="w-3 h-3" />
+                  {Object.keys(experience.metrics).length} metrics
+                </span>
+              )}
+              
+              {/* Skills preview - Desktop only */}
+              {experience.skills && experience.skills.length > 0 && (
+                <div className="hidden sm:flex items-center gap-1.5 flex-wrap">
+                  {experience.skills.slice(0, 3).map((skill, i) => (
+                    <span
+                      key={i}
+                      className="px-2 py-0.5 rounded-md text-xs bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 truncate max-w-[100px]"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                  {experience.skills.length > 3 && (
+                    <span className="text-xs text-gray-600 dark:text-gray-400 font-medium">
+                      +{experience.skills.length - 3}
+                    </span>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Description preview - Mobile only when active */}
+            {isActive && (
+              <motion.p
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                className="sm:hidden mt-3 text-xs text-gray-600 dark:text-gray-400 line-clamp-2"
               >
-                {Object.entries(experience.metrics).map(([key, value]) => (
-                  <div
-                    key={key}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-50 to-amber-50 dark:from-cyan-950/50 dark:to-amber-950/50 border border-cyan-200 dark:border-cyan-800"
-                  >
-                    <TrendingUp className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-                    <span className="text-sm font-bold text-gray-900 dark:text-white">
-                      {value}
-                    </span>
-                    <span className="text-xs text-gray-600 dark:text-gray-400 capitalize">
-                      {key}
-                    </span>
-                  </div>
-                ))}
-              </motion.div>
+                {experience.description[0]}
+              </motion.p>
             )}
           </div>
         </div>
 
-        {/* Impact Section */}
-        <div>
-          <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-            <span className="w-6 h-0.5 bg-gradient-to-r from-cyan-500 to-amber-500" />
-            Impact Delivered
-          </h4>
-          <ul className="space-y-2.5">
-            {experience.description.slice(0, isExpanded ? undefined : 2).map((item, i) => (
-              <motion.li
-                key={i}
-                className="flex items-start gap-3 text-gray-800 dark:text-gray-200 text-sm sm:text-base leading-relaxed"
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-amber-500 mt-2 flex-shrink-0" />
-                <span>{item}</span>
-              </motion.li>
-            ))}
-          </ul>
-
-          {experience.description.length > 2 && (
-            <motion.button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsExpanded(!isExpanded);
-              }}
-              className="mt-4 text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors flex items-center gap-1"
-              whileHover={{ x: 5 }}
-            >
-              {isExpanded ? "Show Less" : `Show ${experience.description.length - 2} More`}
-              <span className={`transform transition-transform ${isExpanded ? "rotate-180" : ""}`}>
-                ↓
-              </span>
-            </motion.button>
-          )}
-        </div>
-
-        {/* Skills Section - Expanded View */}
-        {isExpanded && experience.skills && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="border-t border-gray-200 dark:border-gray-800 pt-4"
-          >
-            <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-              <span className="w-6 h-0.5 bg-gradient-to-r from-cyan-500 to-amber-500" />
-              Skills Leveled Up
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {experience.skills.map((skill, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                  className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-100 to-amber-100 dark:from-cyan-900/30 dark:to-amber-900/30 border border-cyan-300 dark:border-cyan-700 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
-        )}
-
-        {/* Click to Expand Hint */}
-        <div className="text-center pt-2">
-          <span className="text-xs text-gray-400 dark:text-gray-500">
-            {isExpanded ? "Click to collapse" : "Click to expand"}
-          </span>
-        </div>
-      </div>
-      </motion.div>
+        {/* Mobile: Tap to view indicator */}
+        <motion.div
+          className={`
+            sm:hidden mt-3 pt-3 border-t border-gray-200 dark:border-gray-700
+            flex items-center justify-center gap-2 text-xs
+            ${isActive ? 'text-primary dark:text-amber-200' : 'text-gray-600 dark:text-gray-400'}
+          `}
+        >
+          <span>Tap to view details</span>
+          <ChevronRight className="w-3 h-3" />
+        </motion.div>
+      </motion.button>
     </motion.div>
   );
 };
