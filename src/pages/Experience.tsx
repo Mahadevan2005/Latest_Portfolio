@@ -7,6 +7,20 @@ import ExperienceDetail from "../components/Experience/ExperienceDetail";
 const experienceData: ExperienceProps[] = [
   {
     id: 1,
+    company: "HackerRank",
+    role: "Technical Content Engineer Intern - Product Dev",
+    logo: "/experience/hackerrank_logo.png",
+    duration: "Jan 2026 - Present",
+    description: [
+      "Working closely with the product and content team understanding the pipeline. Working on new features to streamline and improve the overall product and content development.",
+    ],
+    website: "https://www.hackerrank.com/",
+    skills: ["React.js", "SpringBoot", "Django", "Product Development"],
+    metrics: { Questions: "4+", LinesOfCode: "600+"},
+    location: "Onsite - Bangalore, KA, India"
+  },
+  {
+    id: 2,
     company: "Skyflo.ai",
     role: "Open Source Developer",
     logo: "/experience/skyflo_ai_logo.jpg",
@@ -23,7 +37,7 @@ const experienceData: ExperienceProps[] = [
     location: "Remote - Chennai, TN, India"
   },
   {
-    id: 2,
+    id: 3,
     company: "IIT Madras (BS in Data Science Programme)",
     role: "Software Developer Intern",
     logo: "/experience/iitm_bs_logo.png",
@@ -40,7 +54,7 @@ const experienceData: ExperienceProps[] = [
     location: "Onsite - Chennai, TN, India"
   },
   {
-    id: 3,
+    id: 4,
     company: "Centre for Outreach and Digital Education (CODE)",
     role: "Junior Developer Intern",
     logo: "/experience/code_logo.jpeg",
