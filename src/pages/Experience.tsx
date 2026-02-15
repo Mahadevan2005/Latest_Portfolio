@@ -8,7 +8,7 @@ const experienceData: ExperienceProps[] = [
   {
     id: 1,
     company: "HackerRank",
-    role: "Technical Content Engineer Intern - Product Dev",
+    role: "Product Developer Intern",
     logo: "/experience/hackerrank_logo.png",
     duration: "Jan 2026 - Present",
     description: [
