@@ -67,28 +67,46 @@ const thoughts = {
     title: "Becoming Over Achieving!",
     text: `
         <p>For a long time, I thought life was about achieving things - good grades, strong projects, and opportunities I once felt were out of reach.</p>
+  
         <p class="mt-4">And for a while, that belief worked. It kept me moving.</p>
+  
         <p class="mt-4">But somewhere along the way, I noticed something subtle.</p>
+  
         <p class="mt-4">Every time I reached a milestone, the feeling didn’t last as long as I expected. The excitement faded, and I found myself chasing the next thing again. It felt like progress, but also like a loop.</p>
+  
         <p class="mt-4">That’s when it started to change for me.</p>
-        <img src="/thoughts/becoming.png" alt="Late night work" class="mx-auto my-6 rounded-xl shadow-md" />
+  
+        <p class="mt-4">Interestingly, it was during these past few months that this shift became clear to me.</p>
+  
+        <img src="/thoughts/becoming.png" alt="Focused work moment" class="mx-auto my-6 rounded-xl shadow-md" />
+  
         <p class="mt-4">I realized that what truly stayed wasn’t the achievement - it was <strong>who I was becoming in the process.</strong></p>
+  
         <p class="mt-4">
-        The quiet moments when I chose to keep going anyway.<br>
-        The times I wanted to quit but didn’t.<br>
-        The quiet decisions to keep going anyway.
+        The quiet moments of showing up consistently.<br>
+        The effort you put in, even when no one notices.<br>
+        The small decisions that shape you over time.
         </p>
+  
         <p class="mt-4">That’s what changed me.</p>
-        <p class="mt-4">The rejections built resilience.<br>
-        The uncertainty forced me to trust myself a little more each time.</p>
-        <p class="mt-4">None of these showed up on a resume. But they quietly changed how I think, how I act, and how I handle life.</p>
+  
+        <p class="mt-4">The experience shaped my perspective.<br>
+        The uncertainty taught me to trust myself a little more each time.</p>
+  
+        <p class="mt-4">None of these show up on a resume. But they quietly change how you think, how you act, and how you handle life.</p>
+  
         <p class="mt-4"><strong>Achievements are visible. Becoming is not.</strong><br>
         But becoming is what makes achievements meaningful.</p>
+  
         <p class="mt-4">Today, I still set goals. I still work towards them.</p>
+  
         <p class="mt-4">But I no longer measure growth only by what I achieve.<br>
         I measure it by who I am becoming along the way.</p>
+  
         <p class="mt-6 font-semibold">Because in the end, achievements come and go.</p>
-        <p class="font-bold mt-2">But the person you become stays.</p>
+  
+        <p class="font-bold mt-2 text-lg">But the person you become stays.</p>
+  
         <p class="mt-6">- Mahadevan M</p>
     `,
     date: "Apr 4, 2026",
