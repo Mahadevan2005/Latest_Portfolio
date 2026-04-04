@@ -4,11 +4,11 @@ import SectionHeading from '../components/SectionHeading';
 
 const thoughts: ThoughtProps[] = [
   {
-    id: "learning",
-    category: "learning",
-    text: "Learning Never Stops - Beyond Academics!",
-    date: "Oct 6, 2025",
-    color: "bg-yellow-300",
+    id: "becoming",
+    category: "growth",
+    text: "Becoming Over Achieving!",
+    date: "Apr 4, 2026",
+    color: "bg-emerald-300",
   },
   {
     id: "miracles",
@@ -16,6 +16,13 @@ const thoughts: ThoughtProps[] = [
     text: "Miracles Do Happen - Trust the Timing!",
     date: "Nov 29, 2025",
     color: "bg-indigo-300",
+  },
+  {
+    id: "learning",
+    category: "learning",
+    text: "Learning Never Stops - Beyond Academics!",
+    date: "Oct 6, 2025",
+    color: "bg-yellow-300",
   },
 ];
 
