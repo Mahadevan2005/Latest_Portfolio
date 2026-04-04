@@ -13,15 +13,15 @@ import {
 
 const About = () => {
   const highlights = [
-  { icon: <FaProjectDiagram />, title: "Problem Solver", subtitle: "Algorithmic & Logical Thinking" },
-  { icon: <FaLaptopCode />, title: "Full-Stack Developer", subtitle: "React, Vue, Flask, SpringBoot" },
-  { icon: <FaServer />, title: "Backend Enthusiast", subtitle: "APIs, Databases & Server Logic" },
-  { icon: <FaMobileAlt />, title: "Responsive UI Designer", subtitle: "Mobile, Tablet & Desktop" },
-  { icon: <FaUsers />, title: "Team Collaborator", subtitle: "Agile & Cross-functional Teams" },
-  { icon: <FaLightbulb />, title: "Innovative Thinker", subtitle: "Creative & Practical Solutions" },
-  { icon: <FaRocket />, title: "Continuous Learner", subtitle: "Exploring Latest Tech Trends & Improving Skills" },
-  { icon: <FaChartLine />, title: "Performance Oriented", subtitle: "Optimized Code & Efficient Solutions" },
-];
+    { icon: <FaProjectDiagram />, title: "Problem Solver", subtitle: "Algorithmic & Logical Thinking" },
+    { icon: <FaLaptopCode />, title: "Full-Stack Developer", subtitle: "React, Vue, Flask, SpringBoot" },
+    { icon: <FaServer />, title: "Backend Enthusiast", subtitle: "APIs, Databases & Server Logic" },
+    { icon: <FaMobileAlt />, title: "Responsive UI Designer", subtitle: "Mobile, Tablet & Desktop" },
+    { icon: <FaUsers />, title: "Team Collaborator", subtitle: "Agile & Cross-functional Teams" },
+    { icon: <FaLightbulb />, title: "Innovative Thinker", subtitle: "Creative & Practical Solutions" },
+    { icon: <FaRocket />, title: "Continuous Learner", subtitle: "Exploring Latest Tech Trends & Improving Skills" },
+    { icon: <FaChartLine />, title: "Performance Oriented", subtitle: "Optimized Code & Efficient Solutions" },
+  ];
 
   return (
     <section
@@ -33,38 +33,70 @@ const About = () => {
 
         {/* Intro Text */}
         <div className="max-w-4xl mx-auto space-y-6">
+          
+          {/* Opening Line */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="text-2xl font-bold text-gray-900 dark:text-white"
+          >
+            I build things.
+          </motion.p>
+
+          {/* Paragraph 1 */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            I am a{" "}
+            I’m a{" "}
             <span className="font-bold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text">
               Computer Science & Data Science student
             </span>{" "}
-            passionate about software development, coding, and problem-solving. I enjoy designing elegant solutions, writing clean and efficient code, and exploring how technology can be harnessed to solve real-world challenges. My journey is aimed at becoming a{" "}
+            who enjoys turning ideas into working products - from backend systems to clean, intuitive interfaces. I’ve worked across the stack, so I care not just about making features work, but making them{" "}
             <span className="font-semibold text-amber-600 dark:text-amber-400">
-              Software Development Engineer
-            </span>
-            , and I have hands-on experience with both front-end and back-end technologies, allowing me to build complete software products that make an impact.
+              reliable, scalable, and pleasant to use
+            </span>.
           </motion.p>
 
+          {/* Paragraph 2 */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            I strongly believe in{" "}
+            I like solving problems that involve real constraints - performance, edge cases, messy data, or unclear requirements. Whether it’s debugging something that “should work but doesn’t” or designing a system from scratch, I enjoy getting into the details.
+          </motion.p>
+
+          {/* Paragraph 3 */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
+          >
+            Lately, I’ve been focusing on{" "}
             <span className="font-bold bg-gradient-to-r from-teal-500 to-blue-500 text-transparent bg-clip-text">
-              continuous learning
-            </span>{" "}
-            and honing my{" "}
-            <span className="font-semibold text-amber-600 dark:text-amber-400">
-              problem-solving skills
+              writing better code
             </span>
-            , whether through competitive coding, personal projects, or keeping up with the latest industry trends. I am driven to collaborate on innovative projects that challenge me and contribute meaningful solutions to the tech world.
+            , building end-to-end projects, and improving how I think about systems - not just features.
+          </motion.p>
+
+          {/* Closing */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
+          >
+            I’m working towards becoming a{" "}
+            <span className="font-semibold text-amber-600 dark:text-amber-400">
+              Software Development Engineer
+            </span>{" "}
+            who can own and ship meaningful products.
           </motion.p>
         </div>
 
@@ -89,7 +121,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-12"
         >
           <a
