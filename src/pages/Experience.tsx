@@ -12,11 +12,14 @@ const experienceData: ExperienceProps[] = [
     logo: "/experience/hackerrank_logo.png",
     duration: "Jan 2026 - Present",
     description: [
-      "Working closely with the product and content team understanding the pipeline. Working on new features to streamline and improve the overall product and content development.",
+      "Engineered an AI-powered candidate evaluation platform with multi-LLM integration (GPT-5, Gemini, and Claude) for GitHub repo/PR analysis, leveraging Celery + Redis parallel pipelines to cut candidate evaluation time from ~1 hour to 6-8 minutes for 10 candidates and enable real-time workflow automation via HackerRank APIs.",
+      "Delivered 20+ production-grade coding questions (SpringBoot, Django, React, Java, C++, Flask), owning the full lifecycle: problem design, test systems, repo setup, and QA for large-scale usage.",
+      "Resolved high-priority production issues and client requests (Amazon, Adobe, Goldman Sachs, Wells Fargo) with rapid turnaround, improving candidate experience and system stability."
+
     ],
     website: "https://www.hackerrank.com/",
     skills: ["React.js", "SpringBoot", "Django", "Product Development"],
-    metrics: { Questions: "4+", LinesOfCode: "600+"},
+    metrics: { Questions: "20+", CandidateEvalTime: "↓ 85%", ProductionIssuesResolved: "15+"},
     location: "Onsite - Bangalore, KA, India"
   },
   {

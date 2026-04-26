@@ -7,6 +7,7 @@ export interface ExperienceProps {
   role: string;
   logo: string;
   duration: string;
+  location: string;
   description: string[];
   website?: string;
   skills?: string[];
