@@ -30,8 +30,11 @@ const Hero = () => {
 
       {/* Centered CTA */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 
-        flex flex-wrap justify-center gap-4 sm:gap-6 
-        text-sm sm:text-base text-gray-900 dark:text-white px-4 max-w-full">
+flex flex-nowrap items-center justify-center 
+gap-3 sm:gap-6 
+text-xs sm:text-base 
+text-gray-900 dark:text-white 
+px-2 w-full max-w-[95%] overflow-hidden">
         <a
           href="https://www.linkedin.com/in/mahadevan-in/"
           target="_blank"
