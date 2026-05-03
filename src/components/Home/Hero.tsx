@@ -29,7 +29,9 @@ const Hero = () => {
       <div className="absolute inset-0 z-0 bg-white/10 dark:bg-black/20"></div>
 
       {/* Centered CTA */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 flex gap-8 text-gray-900 dark:text-white">
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-20 
+        flex flex-wrap justify-center gap-4 sm:gap-6 
+        text-sm sm:text-base text-gray-900 dark:text-white px-4 max-w-full">
         <a
           href="https://www.linkedin.com/in/mahadevan-in/"
           target="_blank"
