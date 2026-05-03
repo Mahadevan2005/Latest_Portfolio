@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { FaMedium } from 'react-icons/fa';
 
 const Footer = () => {
   useTheme();
@@ -11,6 +12,7 @@ const Footer = () => {
   const socialLinks = [
     { name: 'GitHub', icon: <Github className="h-5 w-5" />, href: 'https://github.com/mahadevan2005' },
     { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, href: 'https://www.linkedin.com/in/mahadevan-in/' },
+    { name: 'Blogs', icon: <FaMedium className="h-5 w-5" />, href: 'https://medium.com/@mahadevan122005' },
     { name: 'Email', icon: <Mail className="h-5 w-5" />, href: 'mailto:mahadevan122005@gmail.com' },
   ];
 
