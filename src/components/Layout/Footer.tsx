@@ -23,6 +23,7 @@ const Footer = () => {
     { name: 'Accolades', type: 'route', path: '/accolades' },
     { name: 'Experience', type: 'route', path: '/experience' },
     { name: 'Codolio', type: 'route', path: '/codolio' },
+    { name: 'Blogs', type: 'route', path: '/blogs' },
     { name: 'Thoughts', type: 'route', path: '/thoughts' },
   ];
 

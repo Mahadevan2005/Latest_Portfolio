@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import Home from './pages/Home';
 import Thoughts from './pages/Thoughts';
 import ThoughtDetail from './pages/ThoughtDetail';
+import Blogs from './pages/Blogs';
 import Projects from './pages/Projects';
 import Accolades from './pages/Accolades';
 import Experience from './pages/Experience';
@@ -47,6 +48,7 @@ const App: React.FC = () => {
                 <Route path="/codolio" element={<Codolio />} />
                 <Route path="/thoughts" element={<Thoughts />} />
                 <Route path="/thoughts/:id" element={<ThoughtDetail />} />
+                <Route path="/blogs" element={<Blogs />} />
                 <Route
                 path="/contact"
                 element={
