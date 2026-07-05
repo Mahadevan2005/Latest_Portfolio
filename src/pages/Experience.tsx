@@ -8,22 +8,71 @@ const experienceData: ExperienceProps[] = [
   {
     id: 1,
     company: "HackerRank",
-    role: "Product Developer Intern",
+    role: "Software Development Engineer I",
     logo: "/experience/hackerrank_logo.png",
-    duration: "Jan 2026 - Present",
+    duration: "June 2026 - Present",
     description: [
-      "Engineered an AI-powered candidate evaluation platform with multi-LLM integration (GPT-5, Gemini, and Claude) for GitHub repo/PR analysis, leveraging Celery + Redis parallel pipelines to cut candidate evaluation time from ~1 hour to 6-8 minutes for 10 candidates and enable real-time workflow automation via HackerRank APIs.",
-      "Delivered 20+ production-grade coding questions (SpringBoot, Django, React, Java, C++, Flask), owning the full lifecycle: problem design, test systems, repo setup, and QA for large-scale usage.",
-      "Resolved high-priority production issues and client requests (Amazon, Adobe, Goldman Sachs, Wells Fargo) with rapid turnaround, improving candidate experience and system stability."
+      "Architected candidate evaluation pipeline with Celery, Redis, and multi-LLM scoring (GPT-4, Gemini, Claude) integrating GitHub and PR analysis, automating screening of 3,000+ developers across 10+ rubrics and reducing analysis time by 75%.",
+      "Engineered a multi-agent AI support agent using Agno AgentOS, MCP, pgvector, and OpenAI models to automate ticket triaging across 4+ systems, achieving 70% Helpful/Good ratings across 137+ support tickets.",
+      "Resolved 25+ WCAG accessibility violations across HackerRank workflows, improving accessibility and usability for users of assistive technologies.",
+      "Delivered 15+ production-grade assessments across Spring Boot, Django, React, and Flask, owning full lifecycle from problem design to QA for enterprise clients reducing review iterations by 40%."
 
     ],
     website: "https://www.hackerrank.com/",
-    skills: ["React.js", "SpringBoot", "Django", "Product Development"],
-    metrics: { Questions: "20+", CandidateEvalTime: "↓ 85%", ProductionIssuesResolved: "15+"},
+    skills: [
+      "AI Agents",
+      "LLMs",
+      "Celery",
+      "Redis",
+      "React",
+      "Spring Boot",
+      "Django",
+      "Accessibility",
+      "Product Development"
+    ],
+    metrics: {
+      DevelopersScreened: "3,000+",
+      AnalysisTime: "↓ 75%",
+      AssessmentsShipped: "15+",
+      AccessibilityFixes: "25+"
+    },
     location: "Onsite - Bangalore, KA, India"
   },
   {
     id: 2,
+    company: "HackerRank",
+    role: "Software Developer - Intern",
+    logo: "/experience/hackerrank_logo.png",
+    duration: "Jan 2026 - June 2026",
+    description: [
+      "Architected candidate evaluation pipeline with Celery, Redis, and multi-LLM scoring (GPT-4, Gemini, Claude) integrating GitHub and PR analysis, automating screening of 3,000+ developers across 10+ rubrics and reducing analysis time by 75%.",
+      "Engineered a multi-agent AI support agent using Agno AgentOS, MCP, pgvector, and OpenAI models to automate ticket triaging across 4+ systems, achieving 70% Helpful/Good ratings across 137+ support tickets.",
+      "Resolved 25+ WCAG accessibility violations across HackerRank workflows, improving accessibility and usability for users of assistive technologies.",
+      "Delivered 15+ production-grade assessments across Spring Boot, Django, React, and Flask, owning full lifecycle from problem design to QA for enterprise clients reducing review iterations by 40%."
+
+    ],
+    website: "https://www.hackerrank.com/",
+    skills: [
+      "AI Agents",
+      "LLMs",
+      "Celery",
+      "Redis",
+      "React",
+      "Spring Boot",
+      "Django",
+      "Accessibility",
+      "Product Development"
+    ],
+    metrics: {
+      DevelopersScreened: "3,000+",
+      AnalysisTime: "↓ 75%",
+      AssessmentsShipped: "15+",
+      AccessibilityFixes: "25+"
+    },
+    location: "Onsite - Bangalore, KA, India"
+  },
+  {
+    id: 3,
     company: "Skyflo.ai",
     role: "Open Source Developer",
     logo: "/experience/skyflo_ai_logo.jpg",
@@ -40,7 +89,7 @@ const experienceData: ExperienceProps[] = [
     location: "Remote - Chennai, TN, India"
   },
   {
-    id: 3,
+    id: 4,
     company: "IIT Madras (BS in Data Science Programme)",
     role: "Software Developer Intern",
     logo: "/experience/iitm_bs_logo.png",
@@ -57,7 +106,7 @@ const experienceData: ExperienceProps[] = [
     location: "Onsite - Chennai, TN, India"
   },
   {
-    id: 4,
+    id: 5,
     company: "Centre for Outreach and Digital Education (CODE)",
     role: "Junior Developer Intern",
     logo: "/experience/code_logo.jpeg",
@@ -197,7 +246,7 @@ const Experience = () => {
             >
               <LayoutGrid className="w-4 h-4 text-primary dark:text-amber-200" />
               <span className="text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
-                Roles
+                Timeline
               </span>
               <div className="flex-1 h-px bg-gray-300 dark:bg-gray-700" />
             </motion.div>

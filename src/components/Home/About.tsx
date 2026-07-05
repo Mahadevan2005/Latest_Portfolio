@@ -41,7 +41,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-2xl font-bold text-gray-900 dark:text-white"
           >
-            I build things.
+            Hey, I'm Mahadevan 👋
           </motion.p>
 
           {/* Paragraph 1 */}
@@ -51,14 +51,14 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            I’m a{" "}
+            I'm currently a{" "}
             <span className="font-bold bg-gradient-to-r from-orange-500 to-pink-500 text-transparent bg-clip-text">
-              Computer Science & Data Science student
+            Software Development Engineer I at HackerRank
             </span>{" "}
-            who enjoys turning ideas into working products - from backend systems to clean, intuitive interfaces. I’ve worked across the stack, so I care not just about making features work, but making them{" "}
+            where I build products and AI-powered systems that improve the experience of millions of developers. I joined full-time after an incredible six-month internship, during which I worked on{" "}
             <span className="font-semibold text-amber-600 dark:text-amber-400">
-              reliable, scalable, and pleasant to use
-            </span>.
+            multi-agent AI systems, accessibility improvements, and large-scale candidate evaluation pipelines.
+            </span>
           </motion.p>
 
           {/* Paragraph 2 */}
@@ -68,7 +68,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            I like solving problems that involve real constraints - performance, edge cases, messy data, or unclear requirements. Whether it’s debugging something that “should work but doesn’t” or designing a system from scratch, I enjoy getting into the details.
+            I enjoy building products from the ground up designing architectures, developing scalable backend systems, integrating AI into real-world workflows, and creating user experiences that feel simple despite solving complex problems. Whether it's backend services, APIs, distributed systems, or modern web applications, I enjoy understanding how every piece fits together.
           </motion.p>
 
           {/* Paragraph 3 */}
@@ -78,11 +78,11 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            Lately, I’ve been focusing on{" "}
+            Most of what I know comes from{" "}
             <span className="font-bold bg-gradient-to-r from-teal-500 to-blue-500 text-transparent bg-clip-text">
-              writing better code
+            building things end-to-end, debugging production issues, shipping features, and continuously improving them based on real-world usage.{" "}
             </span>
-            , building end-to-end projects, and improving how I think about systems - not just features.
+            I care about writing clean, maintainable code and building systems that are reliable, scalable, and easy to reason about.
           </motion.p>
 
           {/* Closing */}
@@ -92,11 +92,8 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-medium"
           >
-            I’m working towards becoming a{" "}
-            <span className="font-semibold text-amber-600 dark:text-amber-400">
-              Software Development Engineer
-            </span>{" "}
-            who can own and ship meaningful products.
+            Outside work, you'll usually find me listening to music, exploring new technologies, watching movies, solving coding problems, or connecting with new people.
+
           </motion.p>
         </div>
 
