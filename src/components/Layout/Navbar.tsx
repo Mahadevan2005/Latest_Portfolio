@@ -59,7 +59,7 @@ const Navbar = () => {
         >
           {/* Logo */}
           <a
-              href="https://drive.google.com/file/d/1597qJ2TeOCFWdNNpYAmqFnZvw65zUVLH/view"
+              href="https://drive.google.com/file/d/1bWSnzhpiLwQ8vWX6Kmp-kzAKnuCcCPVW/view"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-amber-200/10 dark:hover:bg-amber-200/20 transition transform animate-breathe cursor-pointer"
