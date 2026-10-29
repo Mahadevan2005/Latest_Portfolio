@@ -337,7 +337,7 @@ h1, h2, h3 { text-wrap: balance; }
 @keyframes theme-old { to { opacity: .55; } }
 @keyframes theme-new { from { clip-path: circle(0 at calc(100% - 45px) 35px); } to { clip-path: circle(150% at calc(100% - 45px) 35px); } }
 @media (max-width: 1023px) { .hero-visual-column { margin-top: 0; } }
-@media (max-width: 1050px) { .nav-links { display: none; }.mobile-toggle { display: grid; }.credential-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.work-entry { grid-template-columns: 180px minmax(0,1fr); gap: 35px; }.about-story { gap: 40px; }.coding-panel { gap: 40px; }.contact-layout { gap: 35px; }.project-card { grid-template-columns: 52px minmax(0,1fr); }.project-image { grid-column: 2; } }
+@media (max-width: 1050px) { .nav-links { display: none; }.mobile-toggle { display: flex; }.credential-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }.work-entry { grid-template-columns: 180px minmax(0,1fr); gap: 35px; }.about-story { gap: 40px; }.coding-panel { gap: 40px; }.contact-layout { gap: 35px; }.project-card { grid-template-columns: 52px minmax(0,1fr); }.project-image { grid-column: 2; } }
 @media (max-width: 760px) {
  .hero-visual-column { margin-top: 0; }
  .project-showcase { min-height: min(132vw,570px); }.project-showcase-stage { height: min(72vw,315px); }

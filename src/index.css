@@ -124,7 +124,13 @@ a { color: inherit; }
   .nav-links a:hover, .nav-links a.active { color: var(--ink); }
   .nav-action { align-items: center; display: flex; gap: 12px; }
   .theme-toggle { align-items: center; background: transparent; border: 0; color: var(--ink); display: grid; height: 34px; place-items: center; width: 34px; }
-  .mobile-toggle { background: transparent; border: 0; color: var(--ink); display: none; }
+  .mobile-toggle { align-items: center; background: transparent; border: 0; color: var(--ink); display: none; font-family: var(--mono); font-size: 9px; font-weight: 600; gap: 8px; letter-spacing: .08em; padding: 0 11px; text-transform: uppercase; }
+  .menu-glyph { display: block; height: 9px; position: relative; width: 14px; }
+  .menu-glyph i { background: currentColor; height: 1px; left: 0; position: absolute; transition: top .25s, transform .25s; width: 14px; }
+  .menu-glyph i:first-child { top: 1px; }
+  .menu-glyph i:last-child { top: 7px; }
+  .mobile-toggle[aria-expanded="true"] .menu-glyph i:first-child { top: 4px; transform: rotate(45deg); }
+  .mobile-toggle[aria-expanded="true"] .menu-glyph i:last-child { top: 4px; transform: rotate(-45deg); }
   .mobile-menu { background: var(--paper-raised); border-bottom: 1px solid var(--line); padding: 14px 20px 22px; }
   .mobile-menu a { border-bottom: 1px solid var(--line); display: block; font-family: var(--mono); font-size: 12px; padding: 13px 0; text-transform: uppercase; }
   .site-footer { border-top: 1px solid var(--line); padding: 54px 0 25px; }
@@ -144,7 +150,13 @@ a { color: inherit; }
   .section-head.is-reversed > div, .section-head.is-reversed > p { grid-column: 1; grid-row: auto; text-align: left; }
   .section-head.is-reversed > div .eyebrow { justify-content: flex-start; }
   .nav-links, .nav-action .button { display: none; }
-  .mobile-toggle { display: grid; }
+  .site-nav { height: 64px; }
+  .site-brand { font-size: 20px; }
+  .nav-action { background: var(--paper-raised); border: 1px solid var(--line); border-radius: 999px; gap: 0; padding: 2px; }
+  .theme-toggle { height: 36px; min-height: 36px; min-width: 36px; width: 36px; }
+  .mobile-toggle { border-left: 1px solid var(--line); display: flex; min-height: 36px; min-width: 72px; }
+  .mobile-menu { display: grid; grid-template-columns: 1fr 1fr; padding: 10px 16px 18px; }
+  .mobile-menu a { padding: 14px 5px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid > :first-child { grid-column: 1 / -1; }
   .footer-bottom { flex-direction: column; gap: 8px; }
