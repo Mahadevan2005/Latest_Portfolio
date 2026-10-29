@@ -23,29 +23,10 @@ const ThoughtCard = ({ thought, index }: ThoughtCardProps) => {
       transition={{ duration: 0.6, delay: index * 0.15 }}
     >
       <Link to={`/thoughts/${thought.id}`}>
-        <div
-          className={`
-            ${thought.color}
-            p-6 sm:p-8 
-            shadow-lg 
-            hover:shadow-1xl 
-            hover:scale-[1.02] 
-            transition-transform duration-300 
-            cursor-pointer 
-            text-black
-            ${index % 2 === 1 ? "rotate-[-0.5deg]" : "rotate-[0.5deg]"}
-          `}
-        >
-          <p className="text-sm sm:text-base font-semibold text-black/70 mb-2">
-            Mahadevan on{" "}
-            <span className="underline decoration-wavy decoration-2 decoration-sky-600">
-              {thought.category}
-            </span>
-          </p>
-          <p className="text-lg sm:text-xl font-medium mb-4 leading-relaxed">
-            {thought.text}
-          </p>
-          <p className="text-right text-sm text-black/70">{thought.date}</p>
+        <div className="card-link bg-[var(--paper-raised)] p-6 sm:p-8 cursor-pointer">
+          <p className="mono text-[10px] uppercase tracking-[.12em] text-[var(--signal)] mb-5">Mahadevan on {thought.category}</p>
+          <p className="display text-[clamp(28px,3.4vw,46px)] mb-7 leading-[1.05]">{thought.text}</p>
+          <p className="mono text-[10px] uppercase tracking-[.1em] text-[var(--ink-soft)]">{thought.date} <span className="float-right text-[var(--signal)]">Read →</span></p>
         </div>
       </Link>
     </motion.div>

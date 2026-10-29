@@ -1,160 +1,19 @@
-import { useState, useRef } from 'react';
-import { ExternalLink, Github, Play, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { useState } from "react";
+import ImageViewer from "../ImageViewer";
+export interface ProjectProps { id: number; title: string; description: string; images: string[]; tags: string[]; sourceUrl?: string; liveUrl?: string; demoUrl?: string; }
 
-export interface ProjectProps {
-  id: number;
-  title: string;
-  description: string;
-  images: string[];
-  tags: string[];
-  sourceUrl?: string;
-  liveUrl?: string;
-  demoUrl?: string;
+function projectDiscipline(project: ProjectProps) {
+ if (project.tags.includes("Product Design") || project.tags.includes("Figma")) return "Product design · UX case study";
+ if (["OpenAI API", "Gemini API", "Promptfoo"].some(tag => project.tags.includes(tag))) return "AI systems · Applied intelligence";
+ if (["Flask", "SpringBoot", "FastAPI"].some(tag => project.tags.includes(tag))) return "Full-stack product · Web application";
+ return "Frontend engineering · Interactive product";
 }
 
-interface ProjectCardProps {
-  project: ProjectProps;
-  index: number;
+export default function ProjectCard({project,index}: {project:ProjectProps;index:number}) {
+ const [slide,setSlide] = useState(0); const [open,setOpen] = useState(false);
+ return <article className="project-card" id={`project-${project.id}`}>
+ <div className="project-index mono"><i aria-hidden="true" />{String(index+1).padStart(2,"0")}</div>
+ <div className="project-copy"><div className="project-kicker"><span className="folio">{projectDiscipline(project)}</span>{project.id===4 && <span className="award-label">IIT Madras · Best Project</span>}</div><h2>{project.title.replace("Assitant","Assistant")}</h2><div className="tags">{project.tags.map(t=><span className="tag" key={t}>{t}</span>)}</div><p className="body-copy">{project.description}</p><div className="project-links">{project.sourceUrl && <a className="text-link" href={project.sourceUrl} target="_blank" rel="noreferrer" aria-label={`Source code for ${project.title}`}>Source code ↗</a>}{project.liveUrl && <a className="text-link" href={project.liveUrl} target="_blank" rel="noreferrer" aria-label={`Live project: ${project.title}`}>Live project ↗</a>}{project.demoUrl && <a className="text-link" href={project.demoUrl} target="_blank" rel="noreferrer" aria-label={`Demo of ${project.title}`}>Watch demo ↗</a>}</div></div>
+ <div className="project-image"><button className="image-zoom" onClick={()=>setOpen(true)} aria-label={`Enlarge screenshot of ${project.title}`}><img src={project.images[slide]} alt={`${project.title}, screenshot ${slide+1}`} loading="lazy" /></button>{project.images.length>1 && <div className="gallery-controls"><button onClick={()=>setSlide((slide+project.images.length-1)%project.images.length)} aria-label={`Previous screenshot of ${project.title}`}>←</button><span aria-live="polite">{slide+1} / {project.images.length}</span><button onClick={()=>setSlide((slide+1)%project.images.length)} aria-label={`Next screenshot of ${project.title}`}>→</button></div>}</div>
+ {open && <ImageViewer src={project.images[slide]} title={project.title} onClose={()=>setOpen(false)} />}</article>;
 }
-
-const ProjectCard = ({ project, index }: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const prevRef = useRef<HTMLButtonElement | null>(null);
-  const nextRef = useRef<HTMLButtonElement | null>(null);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="card flex flex-col h-full rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Image / Swiper */}
-      <div className="relative w-full flex-shrink-0 rounded-t-2xl overflow-hidden bg-gray-100 aspect-w-16 aspect-h-9">
-        {project.images.length > 1 ? (
-          <Swiper
-            modules={[Navigation]}
-            loop
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              if (typeof swiper.params.navigation !== 'boolean') {
-                swiper.params.navigation!.prevEl = prevRef.current;
-                swiper.params.navigation!.nextEl = nextRef.current;
-              }
-            }}
-            pagination={false}
-            className="w-full h-full"
-          >
-            {project.images.map((img, idx) => (
-              <SwiperSlide key={idx} className="flex justify-center items-center">
-                <img
-                  src={img}
-                  alt={`${project.title} - ${idx + 1}`}
-                  className="h-full w-full object-contain object-center transition-transform duration-300"
-                  style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <img
-            src={project.images[0]}
-            alt={project.title}
-            className="h-full w-full object-contain object-center transition-transform duration-300"
-            style={{ transform: isHovered ? 'scale(1.05)' : 'scale(1)' }}
-          />
-        )}
-
-        {/* Navigation buttons */}
-        {project.images.length > 1 && (
-          <>
-            <button
-              ref={prevRef}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/70 rounded-full shadow hover:bg-white transition"
-            >
-              <ChevronLeft className="w-4 h-4 text-gray-800" />
-            </button>
-            <button
-              ref={nextRef}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-white/70 rounded-full shadow hover:bg-white transition"
-            >
-              <ChevronRight className="w-4 h-4 text-gray-800" />
-            </button>
-          </>
-        )}
-      </div>
-
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
-        <div className="flex-grow">
-          <h3 className="text-xl font-md text-gray-900 dark:text-amber-300 mb-2">{project.title}</h3>
-          <p className="text-base leading-relaxed mb-4 text-stone-600 dark:text-stone-100">
-            {project.description}
-          </p>
-
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex gap-3 mt-4 flex-wrap">
-          {project.sourceUrl && (
-            <a
-              href={project.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline text-sm flex items-center gap-1"
-              aria-label={`View source code for ${project.title}`}
-            >
-              <Github className="h-4 w-4" />
-              Source
-            </a>
-          )}
-
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary text-sm flex items-center gap-1"
-              aria-label={`View live site for ${project.title}`}
-            >
-              <ExternalLink className="h-4 w-4" />
-              Live
-            </a>
-          )}
-
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-secondary text-sm flex items-center gap-1"
-              aria-label={`View demo for ${project.title}`}
-            >
-              <Play className="h-4 w-4" />
-              Demo
-            </a>
-          )}
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-export default ProjectCard;

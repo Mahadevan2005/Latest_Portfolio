@@ -1,205 +1,100 @@
-import { useState } from 'react';
-import SectionHeading from '../components/SectionHeading';
-import ProjectCard, { ProjectProps } from '../components/Projects/ProjectCard';
-import { motion } from 'framer-motion';
+import { RotateCcw, Search, X } from "lucide-react";
+import { useSearchParams } from "react-router-dom";
+import PageIntro from "../components/PageIntro";
+import ProjectCard from "../components/Projects/ProjectCard";
+import TechnologyPicker from "../components/TechnologyPicker";
+import { projectsData } from "../data/content";
 
-// Replace with your actual project data
-const projectsData: ProjectProps[] = [
-  {
-    id: 1,
-    title: "Influencer Engagement and Sponsorship Coordination Platform - V2",
-    description: "An upgraded Influencer–Sponsor Connect Platform with Vue.js frontend, Redis & Celery for async tasks, Axios APIs, report export for insights, plus daily/monthly engagement emails for improved collaboration between sponsors and influencers.",
-    images: ["/projects/iescp_v2/thumbnail.jpg", "/projects/iescp_v2/home.png", "/projects/iescp_v2/footer.png", "/projects/iescp_v2/admin_stats.png", "/projects/iescp_v2/admin_dash.png"],
-    tags: ["Python", "Vue.js", "Flask", "Axios", "RESTful API's", "SQLite", "Chart.js", "Celery", "Redis", "MailHog"],
-    sourceUrl: "https://github.com/Mahadevan2005/Influencer_Engagement_and_Sponsorship_Coordination_Platform_Version_2",
-    // liveUrl: "https://example.com",
-    demoUrl: "https://drive.google.com/file/d/1_hJWbBw1qLwg8wWTK2ShPUE24-hbA261/view"
-  },
-  {
-    id: 2,
-    title: "Tools in Data Science Virtual TA",
-    description: "A FastAPI-based Virtual Teaching Assistant for IIT Madras’ Data Science course, providing automated query resolution with text/image input, custom scrapers, structured JSON, modular logic, contextual links, performance evaluation via Promptfoo, and Vercel deployment.",
-    images: ["/projects/tds_ta/Virtual_TA_Logo.png"],
-    tags: ["Python", "FastAPI", "Pydantic", "JSON", "Promptfoo", "Git", "Vercel"],
-    sourceUrl: "https://github.com/Mahadevan2005/TDS-Virtual_Teaching-Assistant",
-  },
-  {
-    id: 3,
-    title: "YouTube App Clone",
-    description: "A frontend-only YouTube clone built with HTML & CSS, designed for structured video placement using CSS Grid and Flexbox for headers and sidebars. It also includes responsive layouts with media queries, ensuring smooth adaptation across devices.Best experienced on laptops for full layout responsiveness.",
-    images: ["/projects/yt_clone/yt-logo.jpg"],
-    tags: ["HTML5", "CSS3", "Flexbox", "CSS Grid", "Media Queries"],
-    sourceUrl: "https://github.com/Mahadevan2005/Youtube-Clone",
-    liveUrl: "https://mahadevan2005.github.io/Youtube-Clone/"
-  },
-  {
-    id: 4,
-    title: "Influencer Engagement and Sponsorship Coordination Platform - V1",
-    description: "A web platform developed to connect sponsors and influencers for effective product marketing, featuring campaign CRUD, role-based authentication, admin dashboard, and data visualization with Matplotlib. (Best Project Award at IIT Madras.)",
-    images: ["/projects/iescp_v1/thumbnail.jpg", "/projects/iescp_v1/iescp_home.png", "/projects/iescp_v1/spon_dash.png", "/projects/iescp_v1/admin_dash.png"],
-    tags: ["HTML5", "CSS3", "Flask", "SQLAlchemy", "Jinja2", "SQLite", "Matplotlib"],
-    sourceUrl: "https://github.com/Mahadevan2005/Influencer-Engagement-and-Sponsorship-Coordination-Platform-Version_1",
-    demoUrl: "https://drive.google.com/file/d/1z_kcOFAl7IJ_DXpZd8JPZdIa6fxc0ZJI/view"
-  },
-  {
-    id: 5,
-    title: "MailPilot - AI Email Assitant",
-    description: "MailPilot is a smart email assistant that works as both a web app and a Chrome extension, powered by Spring Boot and Google Gemini API. It helps you draft, summarize, rewrite, and organize emails directly from your browser or a dedicated web dashboard.",
-    images: ["/projects/mailpilot/MailPilot.png"],
-    tags: ["React.js", "SpringBoot", "Gemini API", "Material UI", "REST API's", "Docker"],
-    sourceUrl: "https://github.com/Mahadevan2005/AI_Email_Assistant",
-    liveUrl: "https://ai-email-assistant-tau.vercel.app/",
-    demoUrl: "https://drive.google.com/file/d/1ca6-bRpfpQjxIedjWZec6mUDAj2MrF6k/view?usp=sharing"
-  },
-  {
-    id: 6,
-    title: "Quiz Master",
-    description: "QuizMaster is a responsive React and Material UI quiz app that fetches questions from an API, features a 30-minute countdown timer, real-time progress tracking, and detailed visual reports, delivering an engaging, fast, and cross-device learning experience.",
-    images: ["/projects/quiz_app/quiz-home.png", "/projects/quiz_app/quiz-login.png", "/projects/quiz_app/quiz-page.png", "/projects/quiz_app/quiz-report.png"],
-    tags: ["React.js", "Material UI", "Git", "Vercel"],
-    sourceUrl: "https://github.com/Mahadevan2005/Quiz_Application",
-    liveUrl: "https://global-quiz-application.vercel.app/",
-  },
-  {
-    id: 7,
-    title: "Text to Speech App",
-    description: "Developed a browser-based text-to-speech application using the Web Speech API, offering 24+ voice options in 10+ languages. Designed to enhance user accessibility and deliver a smoother auditory interaction experience.",
-    images: ["/projects/tts/thumbnail.jpg", "/projects/tts/tts-home.png"],
-    tags: ["HTML5", "Tailwind CSS", "JavaScript", "Web Speech API"],
-    sourceUrl: "https://github.com/Mahadevan2005/Text-To-Speech-App",
-    liveUrl: "https://tts-translation-app-two.vercel.app/"
-  },
-  {
-    id: 8,
-    title: "AI Merchandise Maker",
-    description: "This project simulates an automated merch generation pipeline. It utilizes Python and OpenAI APIs to generate product titles, descriptions, and images. JavaScript handles mockup visualization with HTML Canvas, while Java simulates publishing endpoints. The project showcases multi-language integration, and AI-powered content generation, offering a simulation of real-world product automation workflows.",
-    images: ["/projects/aimerch/merch.png"],
-    tags: ["Python", "JavaScript", "Java", "OpenAI API", "Git"],
-    sourceUrl: "https://github.com/Mahadevan2005/AI_Merch_Maker_Lite",
-    demoUrl: "https://drive.google.com/file/d/1v7yRMiIXKfL_uqxS9EMdFClDbOslgLgO/view?usp=sharing"
-  },
-  {
-    id: 9,
-    title: "CGPA Genie",
-    description: "An intuitive web application designed to calculate the level wise CGPA for the IITM BS Degree program. Users can choose the input grades for the completed courses, and compute level wise CGPA based on predefined course credits, ensuring accurate and efficient grade tracking with a clean UI.",
-    images: ["/projects/cgpa-calc/home.png"],
-    tags: ["HTML5", "Tailwind CSS", "Flask", "Jinja2"],
-    sourceUrl: "https://github.com/Mahadevan2005/IITM-CGPA-CALCULATOR_V2",
-  },
-  {
-    id: 10,
-    title: "UI - Design Case Study on GPay",
-    description: "Analyzed existing GPay features and designed a new money-saving feature using Figma, enhancing user experience and promoting efficient financial management.",
-    images: ["/projects/gpay/gpay.png"],
-    tags: ["Figma", "Product Design"],
-    liveUrl: "https://www.figma.com/proto/Px9Hnv39Kcs4a6QVPZ6ZvF/Gpay---Saving-circle-feature?node-id=0-1&t=UCIewlncKHzjU5Ci-1",
-  },
-  {
-    id: 11,
-    title: "Rock Paper Scissors Game",
-    description: "A simple and interactive Rock Paper Scissors game built using HTML, CSS, and JavaScript with an 'Auto Play' feature.",
-    images: ["/projects/rps/rps-home.png"],
-    tags: ["HTML5", "CSS3", "JavaScript"],
-    sourceUrl: "https://github.com/Mahadevan2005/Rock-Paper-Scissor-Game",
-    liveUrl: "https://mahadevan2005.github.io/Rock-Paper-Scissor-Game/",
-  },
-  {
-    id: 12,
-    title: "Personalized Shopping Recommendation System",
-    description: "This project demonstrates a lightweight personalized recommendation engine using Python. It evolves recommendations for a shopping app based on user interactions (clicks/likes).",
-    images: ["/projects/psr/img.png"],
-    tags: ["Python", "Pandas", "Matplotlib"],
-    sourceUrl: "https://github.com/Mahadevan2005/Personalized-Shopping-Recommendation",
-  },
-];
+const tagCounts = projectsData
+  .flatMap(project => project.tags)
+  .reduce<Record<string, number>>((counts, tag) => {
+    counts[tag] = (counts[tag] ?? 0) + 1;
+    return counts;
+  }, {});
 
-// Tech stack filter options
-const allTags = Array.from(new Set(projectsData.flatMap(project => project.tags)));
+const tags = Object.keys(tagCounts).sort((a, b) => a.localeCompare(b));
+const popularTags = Object.entries(tagCounts)
+  .filter(([, count]) => count > 1)
+  .sort(([a, aCount], [b, bCount]) => bCount - aCount || a.localeCompare(b))
+  .slice(0, 6)
+  .map(([name]) => name);
 
-const Projects = () => {
-  const [filter, setFilter] = useState<string | null>(null);
-  
-  const filteredProjects = filter 
-    ? projectsData.filter(project => project.tags.includes(filter))
-    : projectsData;
+export default function Projects() {
+  const [params, setParams] = useSearchParams();
+  const query = params.get("q") ?? "";
+  const tag = params.get("tech") ?? "";
+  const normalizedQuery = query.trim().toLowerCase();
+  const hasFilters = Boolean(query || tag);
 
-  return ( 
-    <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/30 to-cyan-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 py-12 sm:py-16 overflow-hidden relative">
-        {/* Floating Grid Pattern */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
+  const update = (key: "q" | "tech", value: string) => {
+    const next = new URLSearchParams(params);
+    if (value) next.set(key, value);
+    else next.delete(key);
+    setParams(next, { replace: true });
+  };
+
+  const filtered = projectsData.filter(project => {
+    const matchesTag = !tag || project.tags.includes(tag);
+    const searchableText = [project.title, project.description, ...project.tags].join(" ").toLowerCase();
+    return matchesTag && (!normalizedQuery || searchableText.includes(normalizedQuery));
+  });
+
+  const resultText = `${filtered.length} ${filtered.length === 1 ? "project" : "projects"}`;
+
+  return <div className="wrap page-body">
+    <PageIntro number="02" label="Selected work" title="Projects">
+      <p>End-to-end applications across AI, product engineering, data, and the web. Each one a chance to solve a problem and learn something new.</p>
+    </PageIntro>
+
+    <section className="project-filters" aria-labelledby="project-filter-title">
+      <div className="project-filter-heading">
+        <div>
+          <p className="eyebrow" id="project-filter-title">Explore the archive</p>
+          <p>Search by project, idea, or tool—or narrow the collection by technology.</p>
         </div>
-              
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <SectionHeading 
-            title="Projects" 
-            subtitle="A collection of my recent work and personal projects."
-          />
-          
-          {/* Filters */}
-          <div className="mb-8">
-            <div className="flex flex-wrap gap-2 items-center">
-              <span className="text-sm font-medium mr-2">Filter by:</span>
-              <button
-                onClick={() => setFilter(null)}
-                className={`px-3 py-1 text-sm rounded-full transition-colors ${
-                  !filter 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-muted hover:bg-muted/70'
-                }`}
-              >
-                All
-              </button>
-              
-              {allTags.map(tag => (
-                <button
-                  key={tag}
-                  onClick={() => setFilter(tag)}
-                  className={`px-3 py-1 text-sm rounded-full transition-colors ${
-                    filter === tag 
-                      ? 'bg-primary text-primary-foreground' 
-                      : 'bg-muted hover:bg-muted/70'
-                  }`}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-        
-        {/* Projects Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </motion.div>
-        
-        {/* Empty state */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-xl text-muted-foreground">No projects found with the selected filter.</p>
-            <button
-              onClick={() => setFilter(null)}
-              className="btn btn-primary mt-4"
-            >
-              Clear Filters
-            </button>
-          </div>
-        )}
+        <span className="project-result-count" role="status" aria-live="polite">{resultText}</span>
       </div>
-    </div>
-  );
-};
 
-export default Projects;
+      <div className="project-filter-controls">
+        <label className="project-search">
+          <span className="control-label">Search projects</span>
+          <span className="control-shell">
+            <Search size={18} aria-hidden="true" />
+            <input
+              type="search"
+              placeholder="Try “AI”, “Flask”, or “email”…"
+              value={query}
+              onChange={event => update("q", event.target.value)}
+            />
+            {query && <button type="button" onClick={() => update("q", "")} aria-label="Clear project search"><X size={17} /></button>}
+          </span>
+        </label>
+
+        <TechnologyPicker value={tag} technologies={tags} counts={tagCounts} total={projectsData.length} onChange={value => update("tech", value)} />
+      </div>
+
+      <div className="quick-filters">
+        <span className="folio">Popular</span>
+        <button className={!tag ? "active" : ""} type="button" onClick={() => update("tech", "")} aria-pressed={!tag}>All</button>
+        {popularTags.map(technology => <button className={tag === technology ? "active" : ""} type="button" key={technology} onClick={() => update("tech", tag === technology ? "" : technology)} aria-pressed={tag === technology}>{technology}</button>)}
+        {hasFilters && <button className="reset-project-filters" type="button" onClick={() => setParams({}, { replace: true })}><RotateCcw size={13} /> Reset</button>}
+      </div>
+    </section>
+
+    {hasFilters && <div className="active-filter-summary">
+      <p>Showing <strong>{resultText}</strong>{query && <> matching “{query}”</>}{tag && <> using <span className="tag">{tag}</span></>}.</p>
+    </div>}
+
+    <section className="project-archive" aria-label="Project archive">
+      <p className="eyebrow project-archive-label">Projects</p>
+      <div className="project-grid">{filtered.map(project => <ProjectCard key={project.id} project={project} index={projectsData.indexOf(project)} />)}</div>
+    </section>
+
+    {!filtered.length && <div className="empty-state">
+      <span className="empty-search-icon"><Search size={24} /></span>
+      <h2>No matching projects.</h2>
+      <p>Try a broader search or choose a different technology.</p>
+      <button className="button fill" onClick={() => setParams({}, { replace: true })}>Clear all filters</button>
+    </div>}
+  </div>;
+}

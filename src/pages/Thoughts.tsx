@@ -1,58 +1,8 @@
-import ThoughtCard, { ThoughtProps } from "../components/Thoughts/ThoughtCard";
-import { motion } from 'framer-motion';
-import SectionHeading from '../components/SectionHeading';
-
-const thoughts: ThoughtProps[] = [
-  {
-    id: "becoming",
-    category: "growth",
-    text: "Becoming Over Achieving!",
-    date: "Apr 4, 2026",
-    color: "bg-emerald-300",
-  },
-  {
-    id: "miracles",
-    category: "miracles",
-    text: "Miracles Do Happen - Trust the Timing!",
-    date: "Nov 29, 2025",
-    color: "bg-indigo-300",
-  },
-  {
-    id: "learning",
-    category: "learning",
-    text: "Learning Never Stops - Beyond Academics!",
-    date: "Oct 6, 2025",
-    color: "bg-yellow-300",
-  },
-];
-
-const Thoughts = () => {
-  return ( 
-    <section className="min-h-screen bg-gradient-to-b from-white via-amber-50/30 to-cyan-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 py-16 px-4 flex flex-col items-center">
-      {/* Floating Grid Pattern */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px]" />
-        </div>
-      <div className="container-custom">
-              <motion.div
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-              >
-                <SectionHeading 
-                  title="Thoughts & Reflections" 
-                  subtitle="Uncompiled fragments of how I see, feel, and make sense of the world." 
-                />
-              </motion.div>
-            </div>
-
-      <div className="grid gap-6 w-full max-w-4xl">
-        {thoughts.map((thought, index) => (
-          <ThoughtCard key={thought.id} thought={thought} index={index} />
-        ))}
-      </div>
-    </section>
-  );
-};
-
-export default Thoughts;
+import { Link } from "react-router-dom";
+import { thoughts } from "../data/content";
+import PageIntro from "../components/PageIntro";
+export default function Thoughts() {
+ return <div className="wrap page-body"><PageIntro number="05" label="Personal notes" title="Thoughts & Reflections"><p>Notes on how I see, learn, and make sense of the world—covering growth, patience, and the lessons that don’t fit on a résumé.</p></PageIntro>
+ <div className="notes-list">{thoughts.map((note,i) => <Link className="note-row" key={note.id} to={`/thoughts/${note.id}`}><span className="folio">0{i+1}</span><div><p className="eyebrow plain">{note.category}</p><h2>{note.text}</h2></div><span className="small-copy">{note.date}</span><span className="row-arrow">↗</span></Link>)}</div>
+ <div className="quiet-note"><span className="display">“</span><p>Achievements are visible. Becoming is not.<br />But becoming is what makes achievements meaningful.</p><span className="folio">From “Becoming Over Achieving”</span></div></div>;
+}

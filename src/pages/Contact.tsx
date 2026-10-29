@@ -1,0 +1,5 @@
+import PageIntro from "../components/PageIntro";
+import ContactForm from "../components/ContactForm";
+export default function Contact() {
+ return <div className="wrap page-body"><PageIntro number="08" label="Get in touch" title="Contact"><p>Have an interesting opportunity, a challenging problem, or something you’d like to build together? I’d love to hear about it.</p></PageIntro><div className="contact-layout"><aside><p className="eyebrow">Direct line</p><a className="contact-email" href="mailto:mahadevan122005@gmail.com">mahadevan122005<br className="desktop-break"/>@gmail.com ↗</a><p className="body-copy">Based in India · IST (UTC+5:30)</p><div className="contact-social"><a href="https://www.linkedin.com/in/mahadevan-in/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/mahadevan2005" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://medium.com/@mahadevan122005" target="_blank" rel="noreferrer">Medium ↗</a></div></aside><ContactForm/></div></div>;
+}

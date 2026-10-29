@@ -14,9 +14,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     // Check for stored theme
     if (typeof window !== 'undefined') {
-      const storedTheme = localStorage.getItem('theme') as Theme;
+      let storedTheme: string | null = null;
+      try { storedTheme = localStorage.getItem('theme'); } catch { /* Storage can be unavailable in private contexts. */ }
       // Check for system preference
-      if (!storedTheme) {
+      if (storedTheme !== 'dark' && storedTheme !== 'light') {
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         return prefersDark ? 'dark' : 'light';
       }
@@ -29,11 +30,16 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const root = window.document.documentElement;
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
-    localStorage.setItem('theme', theme);
+    root.style.colorScheme = theme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#15110f' : '#f7f2e8');
+    try { localStorage.setItem('theme', theme); } catch { /* The theme still works for this visit. */ }
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    const changeTheme = () => setTheme(current => current === 'dark' ? 'light' : 'dark');
+    const transitionDocument = document as Document & { startViewTransition?: (callback: () => void) => void };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !transitionDocument.startViewTransition) changeTheme();
+    else transitionDocument.startViewTransition(changeTheme);
   };
 
   const value = {
@@ -45,6 +51,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 
+// This context hook intentionally shares its module with the provider.
+// eslint-disable-next-line react-refresh/only-export-components
 export function useTheme() {
   const context = useContext(ThemeContext);
   if (context === undefined) {
