@@ -1,4 +1,4 @@
-/* Home — a guided, personal systems tour */
+/* Home: a guided, personal systems tour */
 .portfolio-tour {
   --tour-blue: #3158e8;
   --tour-navy: #11172d;
@@ -204,7 +204,7 @@
   .home-shell .mobile-menu a { border-bottom-color: #f7f0df38; }
   .tour-hero { min-height: auto; }
   .hero-layout { display: flex; flex-direction: column; gap: 48px; min-height: auto; padding-block: 72px 100px; }
-  .tour-hero-copy { width: 100%; }.tour-hero-copy h1 { font-size: clamp(62px,20vw,98px); }.tour-hero-copy h1 em { transform: translateX(12px); }
+  .tour-hero-copy { width: 100%; }.tour-hero-copy h1 { font-size: clamp(62px,20vw,98px); }.tour-hero-copy h1 em { display: block; font-size: min(.78em,16vw); letter-spacing: -.06em; max-width: 100%; transform: none; white-space: nowrap; }
   .hero-statement { font-size: 20px; margin-top: 34px; }.hero-statement br { display: none; }
   .tour-portrait-stage { min-height: 490px; width: 100%; }
   .tour-portrait { height: 410px; right: 2%; width: min(88vw,380px); }
@@ -228,7 +228,7 @@
   .trace-map circle,.ai-pipeline-map circle,.mobile-flow-map circle { display: none; }
 }
 
-/* Home dark mode — the same tour, shifted into an after-hours systems palette. */
+/* Home dark mode: the same tour, shifted into an after-hours systems palette. */
 .dark .portfolio-tour { background: #0c0f18; color: #f3eddf; }
 .dark .portfolio-tour .tour-button.dark { background: #f3eddf; border-color: #f3eddf; box-shadow: 5px 5px 0 #d8ad42; color: #0c0f18; }
 .dark .portfolio-tour .tour-button.dark:hover { box-shadow: 8px 8px 0 #d8ad42; }

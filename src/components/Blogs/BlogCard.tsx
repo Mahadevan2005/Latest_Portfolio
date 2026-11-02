@@ -68,7 +68,7 @@ const BlogCard = ({ blog, index }: BlogCardProps) => {
           {blog.readTime}
         </div>
 
-        {/* Corner arrow — appears on hover */}
+        {/* Corner arrow appears on hover */}
         <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100
           transition-opacity duration-300">
           <div className="flex items-center gap-1 text-white/90 text-xs font-semibold">

@@ -50,7 +50,7 @@ export default function Projects() {
       <div className="project-filter-heading">
         <div>
           <p className="eyebrow" id="project-filter-title">Explore the archive</p>
-          <p>Search by project, idea, or tool—or narrow the collection by technology.</p>
+          <p>Search by project, idea, or tool, or narrow the collection by technology.</p>
         </div>
         <span className="project-result-count" role="status" aria-live="polite">{resultText}</span>
       </div>

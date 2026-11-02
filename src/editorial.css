@@ -300,7 +300,7 @@ h1, h2, h3 { text-wrap: balance; }
 @keyframes core-breathe { 50% { transform: translate(-50%,-50%) scale(1.045); } }
 @keyframes console-blink { 50% { opacity: 0; } }
 
-/* Generative systems sculpture — the landing page's non-photographic portrait */
+/* Generative systems sculpture: the landing page's non-photographic portrait */
 .systems-sculpture-card { position: relative; overflow: hidden; padding: 0; color: #17120f; background: var(--signal); border-color: color-mix(in srgb,var(--signal) 72%,#fff); box-shadow: 0 30px 90px color-mix(in srgb,var(--signal) 22%,#0004); }
 .systems-sculpture-card::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg,#ffffff2b,transparent 24%,transparent 74%,#00000014); }
 .sculpture-header,.sculpture-footer { position: relative; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 18px; font-family: var(--mono); text-transform: uppercase; }
@@ -360,6 +360,9 @@ h1, h2, h3 { text-wrap: balance; }
  .stat-grid { grid-template-columns: repeat(2,1fr); }.stat-grid > div { padding: 22px; }.stat-grid > div:nth-child(3) { border-left: 0; }.stat-grid > div:nth-child(n+3) { border-top: 1px solid var(--line); }.stat-grid strong { font-size: 45px; }.coding-panel { margin-top: 65px; }
  .contact-form { padding: 24px; }.form-row { grid-template-columns: 1fr; }.desktop-break { display: none; }.contact-layout { gap: 45px; }
  .footer-grid { gap: 30px 15px; }.image-dialog { padding: 14px; }.viewer-bar { align-items: start; gap: 12px; }.viewer-bar p { font-size: 12px; }
+}
+@media (hover: none), (pointer: coarse), (max-width: 900px) {
+ .motion-cursor { display: none !important; }
 }
 @media (prefers-reduced-motion: reduce) {
  html { scroll-behavior: auto; }

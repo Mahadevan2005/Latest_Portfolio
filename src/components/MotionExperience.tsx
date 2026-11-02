@@ -27,7 +27,7 @@ export default function MotionExperience() {
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches && window.innerWidth > 900;
     const controller = new AbortController();
     const { signal } = controller;
 

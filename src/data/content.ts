@@ -423,7 +423,7 @@ export const blogPosts = [
     id: "prompt-caching",
     title: "Prompt Caching - One of the Most Important Optimizations in Modern AI",
     excerpt:
-      "Have you ever noticed something strange while using AI tools like ChatGPT or Claude? Sometimes the AI responds almost instantly, even when the conversation is huge. Modern AI systems use a powerful optimization called Prompt Caching — and it's one of the key reasons AI products today can actually scale.",
+      "Have you ever noticed something strange while using AI tools like ChatGPT or Claude? Sometimes the AI responds almost instantly, even when the conversation is huge. Modern AI systems use a powerful optimization called Prompt Caching, and it's one of the key reasons AI products today can actually scale.",
     thumbnail:
       "https://cdn-images-1.medium.com/max/1024/1*CAqJTtQ5dKeov3FgPqqfQA.png",
     url: "https://medium.com/@mahadevan122005/prompt-caching-one-of-the-most-important-optimizations-in-modern-ai-9ac51cfa2886",
@@ -437,7 +437,7 @@ export const blogPosts = [
     id: "dns-systems",
     title: "DNS → The Silent System That Powers Every Website You Visit",
     excerpt:
-      "Every time you type a URL into your browser, a fascinating chain of events happens in milliseconds. DNS is like a translator between humans and machines — converting domain names into the IP addresses that computers actually use to find each other on the internet.",
+      "Every time you type a URL into your browser, a fascinating chain of events happens in milliseconds. DNS is like a translator between humans and machines, converting domain names into the IP addresses that computers actually use to find each other on the internet.",
     thumbnail:
       "https://cdn-images-1.medium.com/max/1024/1*aQwRNjfHfMK4Af0Qh85uqQ.png",
     url: "https://medium.com/@mahadevan122005/dns-the-silent-system-that-powers-every-website-you-visit-76c93073fa8b",

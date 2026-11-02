@@ -105,19 +105,19 @@ export default function Home() {
           </div>
         </motion.div>
         <motion.div className="tour-portrait-stage" initial={{ opacity: 0, x: 42, rotate: 2 }} animate={{ opacity: 1, x: 0, rotate: 0 }} transition={{ duration: .9, delay: .15, ease: [.16, 1, .3, 1] }}>
-          <div className="portrait-bubble">I like building systems—and breaking them until they work better.</div>
+          <div className="portrait-bubble">I like building systems and breaking them until they work better.</div>
           <figure className="tour-portrait"><img src="/mahadevan-profile.jpg" alt="Mahadevan Manikandan" width="1600" height="1600" /></figure>
           <div className="portrait-tag"><i /><span>Currently at</span><strong>HackerRank</strong></div>
         </motion.div>
       </div>
-      <div className="tour-hero-foot tour-wrap"><span>Scroll to follow the system</span><span>01 — 06</span></div>
+      <div className="tour-hero-foot tour-wrap"><span>Scroll to follow the system</span><span>01 / 06</span></div>
     </section>
 
     <section className="tour-perspective" id="perspective">
       <GridLines />
       <div className="tour-wrap perspective-layout">
         <div><p className="tour-kicker">01 · Perspective</p><h2>Build it.<br />Stress it.<br /><em>Make it hold.</em></h2></div>
-        <div className="perspective-copy"><p>I like building backend systems—and <strong>breaking them until they work better.</strong> APIs, queues, data flows, and failure paths: software that stays reliable under real use and remains easy to reason about.</p><Link className="tour-text-link" to="/about">More about me <ArrowUpRight size={16} /></Link></div>
+        <div className="perspective-copy"><p>I like building backend systems and <strong>breaking them until they work better.</strong> APIs, queues, data flows, and failure paths: software that stays reliable under real use and remains easy to reason about.</p><Link className="tour-text-link" to="/about">More about me <ArrowUpRight size={16} /></Link></div>
       </div>
       <div className="tour-wrap build-strip">
         {buildAreas.map(([number, title, copy]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
@@ -135,7 +135,7 @@ export default function Home() {
     <section className="tour-project project-lilac">
       <GridLines />
       <div className="tour-wrap project-layout reverse">
-        <div className="project-copy"><p className="tour-kicker">03 · Applied AI</p><h2>AI that is<br /><em>measured, not<br />just impressive.</em></h2><p>I build AI workflows around retrieval, evaluation, reviewer feedback, and clear boundaries—so a useful demo can become a dependable product.</p><div className="project-facts"><span>multi-agent support workflows</span><span>evaluation before release</span></div><Link className="tour-button dark" to="/projects">Explore AI projects <ArrowUpRight size={16} /></Link></div>
+        <div className="project-copy"><p className="tour-kicker">03 · Applied AI</p><h2>AI that is<br /><em>measured, not<br />just impressive.</em></h2><p>I build AI workflows around retrieval, evaluation, reviewer feedback, and clear boundaries, so a useful demo can become a dependable product.</p><div className="project-facts"><span>multi-agent support workflows</span><span>evaluation before release</span></div><Link className="tour-button dark" to="/projects">Explore AI projects <ArrowUpRight size={16} /></Link></div>
         <AiSystem />
       </div>
     </section>
