@@ -7,6 +7,7 @@ import MotionExperience from "../MotionExperience";
 const titles: Record<string,string> = {"/":"Software engineer","/experience":"Experience","/projects":"Projects","/accolades":"Credentials","/blogs":"Writing","/thoughts":"Reflections","/codolio":"Coding practice","/about":"About","/contact":"Contact"};
 export default function Layout({children}: {children: React.ReactNode}) {
  const location=useLocation(); const first=useRef(true);
+ const routeName=location.pathname.split("/").filter(Boolean)[0] || "home";
  useEffect(()=>{
    if (!location.pathname.startsWith("/thoughts/")) document.title=(titles[location.pathname] || "Page not found")+" · Mahadevan Manikandan";
    const canonical=document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -16,5 +17,5 @@ export default function Layout({children}: {children: React.ReactNode}) {
    if(!first.current) document.getElementById("main-content")?.focus({preventScroll:true});
    first.current=false;
  },[location.pathname,location.hash]);
- return <div className="site-shell flex min-h-screen flex-col"><a href="#main-content" className="skip-link">Skip to content</a><MotionExperience/><Navbar/><motion.main key={location.pathname} id="main-content" tabIndex={-1} className="flex-grow outline-none" initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:.52,ease:[.16,1,.3,1]}}>{children}</motion.main><Footer/></div>;
+ return <div className={`site-shell route-shell route-${routeName} flex min-h-screen flex-col ${location.pathname === "/" ? "home-shell" : ""}`}><a href="#main-content" className="skip-link">Skip to content</a><MotionExperience/><Navbar/><motion.main key={location.pathname} id="main-content" tabIndex={-1} className="flex-grow outline-none" initial={{opacity:0,y:10}} animate={{opacity:1,y:0}} transition={{duration:.52,ease:[.16,1,.3,1]}}>{children}</motion.main><Footer/></div>;
 }

@@ -18,6 +18,8 @@ const revealSelectors = [
   ".contact-layout > *",
   ".home-explore > a",
   ".hero-stats > *",
+  ".portfolio-tour section > .tour-wrap",
+  ".selected-projects > a",
 ].join(",");
 
 export default function MotionExperience() {
